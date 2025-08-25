@@ -1,0 +1,237 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    gfortran \
+    git \
+    wget \
+    openmpi-bin \
+    python3-dev \
+    libopenmpi-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+RUN wget https://github.com/LLNL/Caliper/archive/refs/tags/v2.13.1.tar.gz && \
+    tar -xzf v2.13.1.tar.gz && \
+    mkdir caliper-build && cd caliper-build && \
+    cmake ../Caliper-2.13.1 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_MPI=ON && \
+    make -j install && \
+    cd /build && rm -rf v2.13.1.tar.gz Caliper-2.13.1 caliper-build
+
+RUN apt-get update && apt-get install -y build-essential \
+    tar \
+    autoconf \
+    automake \
+    make \
+    wget \
+    git \
+    gcc \
+    g++ \
+    zip \
+    libblas-dev \
+    liblapack-dev \
+    libfftw3-dev libfftw3-bin \
+    libxml2 \
+    libxml2-dev \
+    hdf5-tools \
+    libhdf5-dev \
+    cmake \
+    libboost-all-dev \
+    && apt-get clean
+
+# Utilities
+RUN apt-get update && \
+    apt-get -qq install -y --no-install-recommends \
+        apt-utils \
+        locales \
+        ca-certificates \
+        wget \
+        man \
+        git \
+        flex \
+        ssh \
+        sudo \
+        vim \
+        luarocks \
+        munge \
+        lcov \
+        ccache \
+        lua5.2 \
+        python3-dev \
+        python3-pip \
+        valgrind \
+        jq && \
+    rm -rf /var/lib/apt/lists/*
+
+# Compilers, autotools
+RUN apt-get update && \
+    apt-get -qq install -y --no-install-recommends \
+        build-essential \
+        pkg-config \
+        autotools-dev \
+        libtool \
+	libffi-dev \
+        autoconf \
+        automake \
+        make \
+        clang \
+        clang-tidy \
+        gcc \
+        g++ && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade --ignore-installed --break-system-packages \
+        "markupsafe==2.0.0" \
+        coverage cffi ply six pyyaml "jsonschema>=2.6,<4.0" \
+        sphinx sphinx-rtd-theme sphinxcontrib-spelling 
+   
+RUN apt-get update && \
+    apt-get -qq install -y --no-install-recommends \
+        libsodium-dev \
+        libzmq3-dev \
+        certbot \
+        nginx \
+        libczmq-dev \
+        libjansson-dev \
+        libmunge-dev \
+        libncursesw5-dev \
+        liblua5.2-dev \
+        liblz4-dev \
+        libsqlite3-dev \
+        uuid-dev \
+        libhwloc-dev \
+        libs3-dev \
+        libevent-dev \
+        libarchive-dev \
+        libpam-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Testing utils and libs
+RUN apt-get update && \
+    apt-get -qq install -y --no-install-recommends \
+        faketime \
+        libfaketime \
+        pylint \
+        cppcheck \
+        enchant-2 \
+        aspell \
+        aspell-en && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN locale-gen en_US.UTF-8
+RUN luarocks install luaposix
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
+
+# Install openpmix, prrte. Openpmix (pmix2) seems to be installed by hwloc, v5.x
+WORKDIR /opt
+RUN git clone --recurse-submodules https://github.com/openpmix/prrte.git && \
+    cd prrte && \
+    git checkout v3.0.1 && \
+    ./autogen.pl && \
+    ./configure --prefix=/usr && \
+    make -j && make -j all install
+ 
+ENV LANG=C.UTF-8
+ENV FLUX_SECURITY_VERSION=0.14.0
+ENV CCACHE_DISABLE=1
+RUN V=$FLUX_SECURITY_VERSION && \
+    PKG=flux-security-$V && \
+    URL=https://github.com/flux-framework/flux-security/releases/download && \
+    wget ${URL}/v${V}/${PKG}.tar.gz && \
+    tar xvfz ${PKG}.tar.gz && \
+    cd ${PKG} && \
+    ./configure --prefix=/usr --sysconfdir=/etc || cat config.log && \
+    make -j 4 && \
+    make install && \
+    cd .. && \
+    rm -rf flux-security-*
+
+# Setup MUNGE directories & key
+RUN mkdir -p /var/run/munge && \
+    dd if=/dev/urandom bs=1 count=1024 > munge.key && mv munge.key /etc/munge/munge.key && \
+    chown -R munge /etc/munge/munge.key /var/run/munge && \
+    chmod 600 /etc/munge/munge.key
+
+ENV FLUX_CORE_VERSION=0.76.0
+RUN wget https://github.com/flux-framework/flux-core/releases/download/v${FLUX_CORE_VERSION}/flux-core-${FLUX_CORE_VERSION}.tar.gz && \
+    tar xzvf flux-core-${FLUX_CORE_VERSION}.tar.gz && \
+    cd flux-core-${FLUX_CORE_VERSION} && \
+    ./configure --prefix=/usr --sysconfdir=/etc && \
+    make clean && \
+    make -j && \
+    make install
+
+RUN apt-get update
+RUN apt-get -qq install -y --no-install-recommends \
+	libboost-graph-dev \
+	libboost-system-dev \
+	libboost-filesystem-dev \
+	libboost-regex-dev \
+	libyaml-cpp-dev \
+	libedit-dev \
+        libboost-dev \
+        libyaml-cpp-dev \
+	curl
+
+ENV FLUX_SCHED_VERSION=0.45.0
+RUN wget https://github.com/flux-framework/flux-sched/releases/download/v${FLUX_SCHED_VERSION}/flux-sched-${FLUX_SCHED_VERSION}.tar.gz && \
+    tar -xzvf flux-sched-${FLUX_SCHED_VERSION}.tar.gz && \
+    cd flux-sched-${FLUX_SCHED_VERSION} && \
+    ./configure --prefix=/usr --sysconfdir=/etc && \
+    make -j && \
+    make install && \
+    ldconfig
+
+RUN apt-get update && \
+    apt-get install -y libfftw3-dev libfftw3-bin pdsh libfabric-dev libfabric1 \
+        openssh-client openssh-server \
+        dnsutils telnet strace git g++ \
+        unzip bzip2
+
+# Additional debugging
+RUN apt-get update && \
+    apt-get install -y pdsh \
+        openssh-client openssh-server \
+        dnsutils telnet strace \
+        unzip bzip2
+
+# Install oras for saving artifacts
+RUN VERSION="1.2.0" && \
+    curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_arm64.tar.gz" && \
+    mkdir -p oras-install/ && \
+    tar -zxf oras_${VERSION}_*.tar.gz -C oras-install/ && \
+    mv oras-install/oras /usr/local/bin/ && \
+    rm -rf oras_${VERSION}_*.tar.gz oras-install/
+
+WORKDIR /build
+RUN wget https://github.com/LLNL/Caliper/archive/refs/tags/v2.9.0.tar.gz && \
+    tar -xzf v2.9.0.tar.gz && \
+    mkdir caliper-build && cd caliper-build && \
+    cmake ../Caliper-2.9.0 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_MPI=ON && \
+    make -j install && \
+    cd /build && rm -rf v2.9.0.tar.gz Caliper-2.9.0 caliper-build
+
+RUN git clone --recurse-submodules https://github.com/LLNL/Adiak /opt/adiak && \
+    cd /opt/adiak && mkdir build && cd build && \
+    cmake ../ && make -j && make install
+
+WORKDIR /build
+COPY ./osu-micro-benchmarks-5.8 /build/osu
+RUN cd /build/osu && \
+    export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu && \
+    export CPPFLAGS="-I$CALIPER_PATH/include" && \
+    export LDFLAGS="-L$CALIPER_PATH/lib64" && \
+    export LIBS="-lcaliper -ladiak" && \
+    mkdir -p build.openmpi && cd build.openmpi && \
+    ../configure CC=mpicc CXX=mpicxx --prefix=/usr && \
+    make -j && make install
+
+WORKDIR /
+COPY ./caliper-latency.conf /caliper-latency.conf
+COPY ./caliper-allreduce.conf /caliper-allreduce.conf
+
+# Add to path
+ENV PATH=$PATH:/build/osu/build.openmpi/mpi/collective:/build/osu/build.openmpi/mpi/pt2pt
