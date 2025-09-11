@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: perf-privileged-pod
+spec:
+  # We run on the host's PID namespace to allow perf -a (system-wide)
+  hostPID: true
+  # Ensure this pod lands on one of your Ubuntu nodes
+  nodeSelector:
+    cloud.google.com/gke-os-distribution: ubuntu
+  containers:
+  - name: perf-container
+    image: ubuntu:22.04
+    # 1. THE PERMISSION GRANT: This is the key to not needing chroot for permissions.
+    # It allows the container to make privileged syscalls to the host kernel.
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - name: host-boot-volume
+      mountPath: /boot
+      readOnly: true
+
+    # 2. THE TOOL INSTALLATION: This command block solves the kernel mismatch problem.
+    # It dynamically finds the running kernel version and installs the matching tools for it.
+    command: ["/bin/bash", "-c"]
+    args:
+    - |
+      # Update package lists
+      apt-get update
+
+      # Install the generic tools package first
+      apt-get install -y linux-tools-common linux-tools-gke
+
+      # This is the magic command:
+      # It reads the host kernel version (e.g., 6.6.93+) and installs the
+      # exact matching tools package for it.
+      apt-get install -y linux-tools-$(uname -r)
+
+      echo "+++ Successfully installed perf for kernel $(uname -r) +++"
+      echo "+++ Running perf stat system-wide for 5 seconds +++"
+
+      # Now we can run the container's own perf binary, which is now compatible
+      perf stat -a -- sleep 5
+
+      echo "+++ Perf stat finished. Pod will now sleep. +++"
+      sleep infinity
+  # We use Never so the pod stays around after the command finishes, letting us check logs
+  restartPolicy: Never 
+  volumes:
+  - name: host-boot-volume
+    hostPath:
+      path: /boot
+      type: DirectoryOrCreate # Ensures the directory exists if not present
+

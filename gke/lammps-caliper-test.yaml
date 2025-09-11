@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: lammps-caliper
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: lammps-worker
+        imagePullPolicy: Always
+        image: ghcr.io/converged-computing/google-performance-study:lammps-caliper-test
+        # mpirun --allow-run-as-root -np 8 /root/.local/bin/lmp -in ln.long.in
+        command: ["/bin/sh", "-c", "sleep infinity"]
+        # This is already set
+        # workingDir: /root/.local/share/lammps/bench
+        env:
+        - name: CALI_CONFIG_FILE
+          value: /caliper.conf         
+      
+  backoffLimit: 0

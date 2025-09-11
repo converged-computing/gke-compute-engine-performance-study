@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: perf-toolbox
+  labels:
+    app: perf-toolbox
+spec:
+  selector:
+    matchLabels:
+      app: perf-toolbox
+  template:
+    metadata:
+      labels:
+        app: perf-toolbox
+    spec:
+      # We need to be on the host's PID namespace to see all processes
+      hostPID: true
+      tolerations:
+      - operator: Exists # Ensure it runs on all nodes
+      containers:
+      - name: toolbox-container
+        image: ubuntu:22.04
+        securityContext:
+          # Privileged is required for deep kernel interaction
+          privileged: true
+        # This command will enter a "chroot" environment, effectively giving you
+        # a root shell on the host node itself. Then it runs the host's native perf.
+        command: ["/bin/bash", "-c"]
+        args:
+        - |
+          echo "+++ Entering chroot environment on host node +++"
+          # The chroot command makes it as if we are running directly on the host
+          # We can now use the host's native perf tool, which is guaranteed to match the kernel
+          chroot /host /bin/bash -c "echo '+++ Running native perf stat for 5 seconds +++'; perf stat -a -- sleep 5"
+          echo "+++ Command finished. Pod will now sleep indefinitely. +++"
+          sleep infinity
+        volumeMounts:
+        - name: host-root
+          mountPath: /host
+      volumes:
+      - name: host-root
+        hostPath:
+          path: /
