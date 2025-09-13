@@ -17,6 +17,16 @@ build:
 		$(BUILD_CONTEXT)
 	@echo "Docker image $(FULL_IMAGE_NAME) built successfully."
 
+# Without caliper
+build-vanilla:
+	@echo "Building Docker image $(IMAGE_NAME):osu-test..."
+	docker build \
+		-f $(DOCKERFILE_PATH).without-caliper \
+		-t $(IMAGE_NAME):osu-test \
+		$(BUILD_CONTEXT)
+	@echo "Docker image $(IMAGE_NAME):osu-test built successfully."
+
+
 build-arm:
 	@echo "Building Docker ARM image $(FULL_ARM_NAME)..."
 	docker buildx build \
