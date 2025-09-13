@@ -1,5 +1,5 @@
 IMAGE_NAME ?= ghcr.io/converged-computing/google-performance-study
-IMAGE_TAG ?= osu-caliper-test
+IMAGE_TAG ?= kripke-caliper-test
 FULL_IMAGE_NAME = $(IMAGE_NAME):$(IMAGE_TAG)
 FULL_ARM_NAME = $(IMAGE_NAME):$(IMAGE_TAG)-arm
 DOCKERFILE_PATH = Dockerfile
@@ -19,13 +19,12 @@ build:
 
 # Without caliper
 build-vanilla:
-	@echo "Building Docker image $(IMAGE_NAME):osu-test..."
+	@echo "Building Docker image $(IMAGE_NAME):kripke-test..."
 	docker build \
 		-f $(DOCKERFILE_PATH).without-caliper \
-		-t $(IMAGE_NAME):osu-test \
+		-t $(IMAGE_NAME):kripke-test \
 		$(BUILD_CONTEXT)
-	@echo "Docker image $(IMAGE_NAME):osu-test built successfully."
-
+	@echo "Docker image $(IMAGE_NAME):kripke-test built successfully."
 
 build-arm:
 	@echo "Building Docker ARM image $(FULL_ARM_NAME)..."
@@ -48,5 +47,5 @@ clean:
 	docker rmi $(FULL_IMAGE_NAME) || true
 	@echo "Docker image $(FULL_IMAGE_NAME) removed (if it existed)."
 
-.PHONY: all build push clean
+.PHONY: all build push clean build-vanilla
 
