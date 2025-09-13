@@ -24,7 +24,7 @@ gcloud container clusters create pmu-cluster \
   --enable-ip-alias \
   --num-nodes 1 \
   --performance-monitoring-unit=standard \
-  --machine-type=c4-standard-16 \
+  --machine-type=c4d-standard-16 \
   --project=llnl-flux
 ```
 

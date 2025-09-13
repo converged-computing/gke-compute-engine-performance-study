@@ -16,5 +16,7 @@ spec:
         env:
         - name: CALI_CONFIG_FILE
           value: /caliper.conf         
-      
-  backoffLimit: 0
+        - name: CALI_CONFIG
+          value: spot,output=/data/out.cali
+
+backoffLimit: 0
