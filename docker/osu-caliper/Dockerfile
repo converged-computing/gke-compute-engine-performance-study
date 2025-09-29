@@ -207,12 +207,12 @@ RUN VERSION="1.2.0" && \
     rm -rf oras_${VERSION}_*.tar.gz oras-install/
 
 WORKDIR /build
-RUN wget https://github.com/LLNL/Caliper/archive/refs/tags/v2.9.0.tar.gz && \
-    tar -xzf v2.9.0.tar.gz && \
+RUN wget https://github.com/LLNL/Caliper/archive/refs/tags/v2.13.0.tar.gz && \
+    tar -xzf v2.13.0.tar.gz && \
     mkdir caliper-build && cd caliper-build && \
-    cmake ../Caliper-2.9.0 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_MPI=ON && \
+    cmake ../Caliper-2.13.0 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_MPI=ON && \
     make -j install && \
-    cd /build && rm -rf v2.9.0.tar.gz Caliper-2.9.0 caliper-build
+    cd /build && rm -rf v2.13.0.tar.gz Caliper-2.13.0 caliper-build
 
 RUN git clone --recurse-submodules https://github.com/LLNL/Adiak /opt/adiak && \
     cd /opt/adiak && mkdir build && cd build && \
@@ -230,8 +230,7 @@ RUN cd /build/osu && \
     make -j && make install
 
 WORKDIR /
-COPY ./caliper-latency.conf /caliper-latency.conf
-COPY ./caliper-allreduce.conf /caliper-allreduce.conf
 
 # Add to path
 ENV PATH=$PATH:/build/osu/build.openmpi/mpi/collective:/build/osu/build.openmpi/mpi/pt2pt
+COPY ./entrypoint.sh /entrypoint.sh

@@ -159,6 +159,7 @@ main (int argc, char *argv[])
                 if (i >= options.skip) {
                     t_end = MPI_Wtime();
                     t_total += calculate_total(t_start, t_end, t_lo);
+                    cali_end_byname("msg_size");
                     CALI_MARK_END("round_trip");
                 }
             } else if (myid == 1) {
