@@ -1,0 +1,93 @@
+Defaulted container "osu" out of: osu, flux-view (init)
+🟧️  wait-fs: 2025/10/06 06:31:50 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2025/10/06 06:31:50 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
+
+Hello user root
+
+🌟️ Curve Certificate
+curve.cert
+#   ****  Generated on 2023-04-26 22:54:42 by CZMQ  ****
+#   ZeroMQ CURVE **Secret** Certificate
+#   DO NOT PROVIDE THIS FILE TO OTHER USERS nor change its permissions.
+    
+metadata
+    name = "flux-cert-generator"
+    keygen.hostname = "osu-0"
+curve
+    public-key = "t[DB%}/R>So4HW&pvnb&7enId8^H=<NKMA/t<He^"
+    secret-key = "pYj[7&fu}YwTrY=5X8?CM?+/F!iLfg@peJslj-kG"
+
+📦 Resources
+flux R encode --hosts=osu-[0-1] --local
+{"version": 1, "execution": {"R_lite": [{"rank": "0-1", "children": {"core": "0-47"}}], "starttime": 0.0, "expiration": 0.0, "nodelist": ["osu-[0-1]"]}}
+👋 Hello, I'm osu-0
+The main host is osu-0
+The working directory is /, contents include:
+bin			dev		   lib64  run		      usr
+bin.usr-is-merged	etc		   media  sbin		      var
+boot			flux_operator	   mnt	  sbin.usr-is-merged
+build			home		   opt	  srv
+caliper-allreduce.conf	lib		   proc   sys
+caliper-latency.conf	lib.usr-is-merged  root   tmp
+🚩️ Flux Option Flags defined
+Command provided is: /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+Flags for flux are -N 2 -n2 -o cpu-affinity=per-task 
+
+🌀 Submit Mode: flux start -o --config /mnt/flux/view/etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/mnt/flux/view/run/flux    -Sstatedir=/mnt/flux/view/var/lib/flux -Slocal-uri=local:///mnt/flux/view/run/flux/local -Stbon.connect_timeout=5s     -Slog-stderr-level=6    -Slog-stderr-mode=local  flux submit  -N 2 -n2 -o cpu-affinity=per-task  --quiet --watch /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+Flags for flux are -N 2 -n2 -o cpu-affinity=per-task 
+broker.info[0]: start: none->join 0.413965ms
+broker.info[0]: parent-none: join->init 0.009162ms
+cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
+job-manager.info[0]: restart: 0 jobs
+job-manager.info[0]: restart: 0 running jobs
+job-manager.info[0]: restart: checkpoint.job-manager not found
+broker.info[0]: rc1.0: running /etc/flux/rc1.d/01-sched-fluxion
+sched-fluxion-resource.info[0]: version 0.45.0
+sched-fluxion-resource.warning[0]: create_reader: allowlist unsupported
+sched-fluxion-resource.info[0]: populate_resource_db: loaded resources from core's resource.acquire
+sched-fluxion-qmanager.info[0]: version 0.45.0
+broker.info[0]: rc1.0: running /etc/flux/rc1.d/02-cron
+broker.info[0]: rc1.0: tab: cron-1 created: scheduled in 73689.296s at Tue Oct  7 03:00:00 2025
+broker.info[0]: rc1.0: /etc/flux/rc1 Exited (rc=0) 0.3s
+broker.info[0]: rc1-success: init->quorum 0.259325s
+broker.info[0]: online: osu-0 (ranks 0)
+broker.info[0]: online: osu-[0-1] (ranks 0-1)
+broker.info[0]: quorum-full: quorum->run 0.51716s
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+0                      45.01
+1                      45.00
+2                      45.06
+4                      45.03
+8                      45.03
+16                     45.01
+32                     45.23
+64                     45.23
+128                    45.38
+256                    46.19
+512                    46.66
+1024                   47.35
+2048                   63.85
+4096                   62.15
+8192                   67.78
+16384                  69.93
+32768                  75.22
+65536                 189.19
+131072                209.87
+262144                240.20
+524288                296.89
+1048576               403.77
+2097152               671.01
+4194304               972.73
+broker.info[0]: rc2.0: flux submit -N 2 -n2 -o cpu-affinity=per-task --quiet --watch /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency Exited (rc=0) 21.8s
+broker.info[0]: rc2-success: run->cleanup 21.7716s
+broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.1s
+broker.info[0]: cleanup.1: flux resource acquire-mute Exited (rc=0) 0.1s
+broker.info[0]: cleanup.2: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.1s
+broker.info[0]: cleanup.3: flux queue idle --quiet Exited (rc=0) 0.1s
+broker.info[0]: cleanup-success: cleanup->shutdown 0.305033s
+broker.info[0]: children-complete: shutdown->finalize 45.5992ms
+broker.info[0]: rc3.0: running /etc/flux/rc3.d/01-sched-fluxion
+broker.info[0]: rc3.0: /etc/flux/rc3 Exited (rc=0) 0.1s
+broker.info[0]: rc3-success: finalize->goodbye 82.8688ms
+broker.info[0]: goodbye: goodbye->exit 0.024218ms

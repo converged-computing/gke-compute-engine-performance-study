@@ -1,0 +1,45 @@
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: adiak_export,adiak_import,aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+4                     193.17
+8                     195.51
+16                    193.71
+32                    193.93
+64                    193.50
+128                   193.78
+256                   197.68
+512                   200.70
+1024                  204.58
+2048                  212.92
+4096                  235.18
+8192                  267.57
+16384                 619.57
+32768                 428.59
+65536                 745.51
+131072               1505.01
+262144                599.64
+524288                780.84
+1048576              1245.85
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 0
+== CALIPER: (0): Process blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 1 blocks, 70 nodes
+   Metadata memory pool: 1 MiB reserved, 18.1797 KiB used
+  Thread blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Finished
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 4, "with": [{"type": "slot", "count": 48, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["osu_allreduce"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/root", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": 0, "nofile": 1024, "as": -1, "rss": -1, "nproc": 1450578}, "cpu-affinity": "per-task"}}}, "user": {"study_id": "kripke-4-iter-1"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759777946.9780364,"name":"init"}
+{"timestamp":1759777946.9785993,"name":"starting"}
+{"timestamp":1759777946.9897006,"name":"shell.init","context":{"service":"0-shell-fTY6NB1hq","leader-rank":0,"size":4}}
+{"timestamp":1759777947.0749943,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,4,48,1]]}}}
+{"timestamp":1759777959.6239123,"name":"shell.task-exit","context":{"localid":45,"rank":45,"state":"Exited","pid":4360,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759777959.6399243,"name":"complete","context":{"status":0}}
+{"timestamp":1759777959.6399548,"name":"done"}
+
