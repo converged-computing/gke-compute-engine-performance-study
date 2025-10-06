@@ -126,6 +126,8 @@ int main(int argc, char *argv[])
 
             // These are the number of iterations to skip and "warmup"
             if (i>=options.skip){
+                cali_end_byname("num_procs");  
+                cali_end_byname("msg_size");
                 CALI_MARK_END("allreduce_op");
                 timer+=t_stop-t_start;
             }

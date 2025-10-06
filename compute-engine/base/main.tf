@@ -26,6 +26,7 @@ module "compute_nodes" {
     
     name_prefix       = each.value.name_prefix
     subnetwork        = var.subnetwork
+    #subnetwork_project = var.subnetwork_project
     machine_arch      = each.value.machine_arch
     machine_type      = each.value.machine_type
     num_instances     = each.value.instances

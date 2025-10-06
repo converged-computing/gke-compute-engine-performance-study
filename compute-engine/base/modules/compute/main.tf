@@ -54,7 +54,8 @@ module "flux_compute_instance_template" {
     service_account      = var.service_account
     tags                 = ["ssh", "flux", "compute"]
     machine_type         = var.machine_type
-    disk_size_gb         = 256
+#    disk_size_gb         = 75
+#    disk_type            = "local-ssd"
     source_image         = local.compute_images["${var.machine_arch}"].image
     source_image_project = local.compute_images["${var.machine_arch}"].project
     automatic_restart    = local.automatic_restart

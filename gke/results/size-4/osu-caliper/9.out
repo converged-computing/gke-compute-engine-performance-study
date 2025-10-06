@@ -1,0 +1,322 @@
+Defaulted container "osu" out of: osu, flux-view (init)
+🟧️  wait-fs: 2025/09/29 06:19:11 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2025/09/29 06:19:11 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
+
+Hello user root
+
+🌟️ Curve Certificate
+curve.cert
+#   ****  Generated on 2023-04-26 22:54:42 by CZMQ  ****
+#   ZeroMQ CURVE **Secret** Certificate
+#   DO NOT PROVIDE THIS FILE TO OTHER USERS nor change its permissions.
+    
+metadata
+    name = "flux-cert-generator"
+    keygen.hostname = "osu-0"
+curve
+    public-key = "a<k*VG>G4Dr]Zz{U!oIYN>*fiUKYu*6Kpp@a*t9H"
+    secret-key = "Q%-gu1zc9mGSl5t)OgD@e7%U#&Eup99$9/uK]LO&"
+
+📦 Resources
+flux R encode --hosts=osu-[0-3] --local
+{"version": 1, "execution": {"R_lite": [{"rank": "0-3", "children": {"core": "0-47"}}], "starttime": 0.0, "expiration": 0.0, "nodelist": ["osu-[0-3]"]}}
+👋 Hello, I'm osu-0
+The main host is osu-0
+The working directory is /, contents include:
+bin		   entrypoint.sh  lib.usr-is-merged  proc		 srv
+bin.usr-is-merged  etc		  lib64		     root		 sys
+boot		   flux_operator  media		     run		 tmp
+build		   home		  mnt		     sbin		 usr
+dev		   lib		  opt		     sbin.usr-is-merged  var
+🚩️ Flux Option Flags defined
+Command provided is: /bin/bash /entrypoint.sh
+
+🌀 Launcher Mode: flux start -o --config /mnt/flux/view/etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/mnt/flux/view/run/flux    -Sstatedir=/mnt/flux/view/var/lib/flux -Slocal-uri=local:///mnt/flux/view/run/flux/local -Stbon.connect_timeout=5s     -Slog-stderr-level=6    -Slog-stderr-mode=local  
+broker.info[0]: start: none->join 0.403785ms
+broker.info[0]: parent-none: join->init 0.008735ms
+cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
+job-manager.info[0]: restart: 0 jobs
+job-manager.info[0]: restart: 0 running jobs
+job-manager.info[0]: restart: checkpoint.job-manager not found
+broker.info[0]: rc1.0: running /etc/flux/rc1.d/01-sched-fluxion
+sched-fluxion-resource.info[0]: version 0.45.0
+sched-fluxion-resource.warning[0]: create_reader: allowlist unsupported
+sched-fluxion-resource.info[0]: populate_resource_db: loaded resources from core's resource.acquire
+sched-fluxion-qmanager.info[0]: version 0.45.0
+broker.info[0]: rc1.0: running /etc/flux/rc1.d/02-cron
+broker.info[0]: rc1.0: tab: cron-1 created: scheduled in 74447.909s at Tue Sep 30 03:00:00 2025
+broker.info[0]: rc1.0: /etc/flux/rc1 Exited (rc=0) 0.2s
+broker.info[0]: rc1-success: init->quorum 0.206611s
+broker.info[0]: online: osu-0 (ranks 0)
+broker.info[0]: online: osu-[0-3] (ranks 0-3)
+broker.info[0]: quorum-full: quorum->run 1.30945s
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+== CALIPER: (0): Available services: aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel event-trace
+== CALIPER: (0): event-trace: registered async_event service
+== CALIPER: (0): event-trace: event: Using region level 0
+== CALIPER: (0): event-trace: event: Marked attribute comm.region
+== CALIPER: (0): event-trace: event: Marked attribute loop
+== CALIPER: (0): event-trace: event: Marked attribute phase
+== CALIPER: (0): event-trace: event: Marked attribute region
+== CALIPER: (0): event-trace: Registered event trigger service
+== CALIPER: (0): event-trace: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): event-trace: Registered MPI service
+== CALIPER: (0): event-trace: Registered timer service
+== CALIPER: (0): event-trace: Registered trace service
+== CALIPER: (0): event-trace: event: Marked attribute mpi.function
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): event-trace: event: Marked attribute msg_size
+0                      21.48
+1                      21.50
+2                      21.56
+4                      21.54
+8                      21.56
+16                     21.62
+32                     21.60
+64                     21.68
+128                    21.71
+256                    22.79
+512                    23.06
+1024                   23.30
+2048                   34.35
+4096                   27.88
+8192                   38.53
+16384                  39.48
+32768                  46.85
+65536                  96.67
+131072                119.52
+262144                148.92
+524288                209.08
+1048576               314.96
+2097152               534.63
+4194304               948.74
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): event-trace: Flushing Caliper data
+== CALIPER: (0): event-trace: trace: Flushed 1278008 snapshots.
+== CALIPER: (0): event-trace: Recorder: Wrote 1278154 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing channel event-trace
+== CALIPER: (0): event-trace: Finishing mpi service
+== CALIPER: (0): event-trace: trace: 26 MiB reserved, 25.2007 MiB used, 13 chunks.
+== CALIPER: (0): event-trace: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
+== CALIPER: (0): event-trace channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 1 blocks, 217 nodes
+   Metadata memory pool: 1 MiB reserved, 19.1455 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished
+
+START
+cali-query -Gj /data/out.cali
+cali-query: Error reading /data/out.cali: Cannot open file /data/out.cali
+[
+
+]
+END
+
+START
+cali-query -T /data/out.cali
+cali-query: Error reading /data/out.cali: Cannot open file /data/out.cali
+Path 
+END
+rm: cannot remove '/data/out.cali': No such file or directory
+OSU-ALLREDUCE
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel spot
+== CALIPER: (0): spot: Registered aggregation service
+== CALIPER: (0): spot: event: Using region level 0
+== CALIPER: (0): spot: event: Marked attribute comm.region
+== CALIPER: (0): spot: event: Marked attribute loop
+== CALIPER: (0): spot: event: Marked attribute phase
+== CALIPER: (0): spot: event: Marked attribute region
+== CALIPER: (0): spot: Registered event trigger service
+== CALIPER: (0): spot: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): spot: Registered MPI service
+== CALIPER: (0): spot: Registered timer service
+== CALIPER: (0): spot: event: Marked attribute mpi.function
+== CALIPER: (0): spot: Enabling MPI message tracing
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): spot: event: Marked attribute msg_size
+== CALIPER: (0): spot: event: Marked attribute num_procs
+4                     258.95
+8                     265.53
+16                    267.61
+32                    257.99
+64                    286.34
+128                   296.05
+256                   255.31
+512                   268.82
+1024                  269.32
+2048                  314.34
+4096                  338.57
+8192                  332.17
+16384                 598.90
+32768                 500.46
+65536                 879.72
+131072               1703.81
+262144                985.82
+524288               1114.81
+1048576              1859.48
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): spot: CustomOutputController::flush(): using MPI
+== CALIPER: (0): OutputCommMpi: MPI is available
+== CALIPER: (0): spot: Flushing Caliper data
+== CALIPER: (0): spot: Aggregate: flushed 88 snapshots.
+== CALIPER: (0): spot: Wrote 129 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): CaliperMetadataDB: stored 225 nodes, 122 strings.
+== CALIPER: (0): Releasing channel spot
+== CALIPER: (0): spot: Aggregate: Releasing aggregation DB.
+  max hash len: 3, 94 entries, 651 kernels, 1.5 MiB reserved.
+== CALIPER: (0): spot: Finishing mpi service
+== CALIPER: (0): spot channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 2 blocks, 259 nodes
+   Metadata memory pool: 1 MiB reserved, 38.123 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished
+
+START
+cali-query -Gj /data/out.cali
+[
+{"cali.caliper.version":"2.13.0","cali.channel":"spot","mpi.world.size":"192","opts:mpi.message.count":"true","opts:mpi.message.size":"true","opts:node.order":"true","opts:output":"/data/out.cali","opts:profile.mpi":"true","opts:region.count":"true","opts:time.exclusive":"true","spot.channels":"regionprofile","spot.format.version":"2","spot.metrics":"min#inclusive#sum#time.duration,max#inclusive#sum#time.duration,avg#inclusive#sum#time.duration,sum#inclusive#sum#time.duration,avg#sum#mmc.send,max#sum#mmc.send,avg#sum#mmc.recv,max#sum#mmc.recv,max#sum#mmc.coll,min#min#mms.min,avg#avg#mms.avg,max#max#mms.avg,min#min#aggregate.slot,min#sum#rc.count,avg#sum#rc.count,max#sum#rc.count,sum#sum#rc.count,min#scale#sum#time.duration.ns,max#scale#sum#time.duration.ns,avg#scale#sum#time.duration.ns,sum#scale#sum#time.duration.ns","spot.options":"profile.mpi,mpi.message.count,mpi.message.size,node.order,region.count,time.exclusive","spot.timeseries.metrics":""}
+]
+END
+
+START
+cali-query -T /data/out.cali
+Path            Min time/rank Max time/rank Avg time/rank Total time  Node order Min time/rank (exc) Max time/rank (exc) Avg time/rank (exc) Total time (exc) spot.channel  Calls/rank (min) Calls/rank (avg) Calls/rank (max) Calls (total) Collectives (max) Msg size (min) Msg size (avg) 
+MPI_Comm_dup         0.000541      0.000904      0.000704    0.135171         87            0.000541            0.000904            0.000704         0.135171 regionprofile                1                1                1           192                                                 
+MPI_Finalized        0.000003      0.000005      0.000003    0.000633         86            0.000003            0.000005            0.000003         0.000633 regionprofile                1                1                1           192                                                 
+MPI_Initialized      0.000003      0.000016      0.000004    0.000810         85            0.000003            0.000016            0.000004         0.000810 regionprofile                1                1                1           192                                                 
+MPI_Finalize         0.000007      0.000022      0.000009    0.001664         84            0.000007            0.000022            0.000009         0.001664 regionprofile                1                1                1           192                                                 
+MPI_Allreduce        0.283500      0.845070      0.593356  113.924000         10            0.283500            0.845070            0.593356       113.924000 regionprofile             1350             1350             1350        259200              1350              8          19902 
+MPI_Reduce           0.000282      0.008385      0.001029    0.197572          8            0.000282            0.008385            0.001029         0.197572 regionprofile               57               57               57         10944                57              0              7 
+MPI_Barrier          3.184310      8.264490      5.694370 1093.320000          6            3.184310            8.264490            5.694370      1093.320000 regionprofile            15887            15887            15887       3050304             15887                               
+allreduce_op         3.087650      7.621540      5.354780 1028.120000          1            0.204356            0.332573            0.222673        42.753300 regionprofile            43500            43500            43500       8352000                                                 
+  MPI_Allreduce      2.848680      7.416430      5.132110  985.364000          4            2.848680            7.416430            5.132110       985.364000 regionprofile            14500            14500            14500       2784000             14500              4         110376 
+END
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel event-trace
+== CALIPER: (0): event-trace: registered async_event service
+== CALIPER: (0): event-trace: event: Using region level 0
+== CALIPER: (0): event-trace: event: Marked attribute comm.region
+== CALIPER: (0): event-trace: event: Marked attribute loop
+== CALIPER: (0): event-trace: event: Marked attribute phase
+== CALIPER: (0): event-trace: event: Marked attribute region
+== CALIPER: (0): event-trace: Registered event trigger service
+== CALIPER: (0): event-trace: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): event-trace: Registered MPI service
+== CALIPER: (0): event-trace: Registered timer service
+== CALIPER: (0): event-trace: Registered trace service
+== CALIPER: (0): event-trace: event: Marked attribute mpi.function
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): event-trace: event: Marked attribute msg_size
+== CALIPER: (0): event-trace: event: Marked attribute num_procs
+4                     249.17
+8                     272.56
+16                    247.30
+32                    255.36
+64                    277.00
+128                   259.41
+256                   256.18
+512                   264.78
+1024                  284.18
+2048                  318.68
+4096                  322.08
+8192                  346.03
+16384                 581.96
+32768                 518.42
+65536                 817.86
+131072               1707.12
+262144                842.42
+524288               1072.09
+1048576              1732.32
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): event-trace: Flushing Caliper data
+== CALIPER: (0): event-trace: trace: Flushed 150590 snapshots.
+== CALIPER: (0): event-trace: Recorder: Wrote 150782 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing channel event-trace
+== CALIPER: (0): event-trace: Finishing mpi service
+== CALIPER: (0): event-trace: trace: 4 MiB reserved, 2.92242 MiB used, 2 chunks.
+== CALIPER: (0): event-trace: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
+== CALIPER: (0): event-trace channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 2 blocks, 267 nodes
+   Metadata memory pool: 1 MiB reserved, 37.2568 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished
+
+START
+cali-query -Gj /data/out.cali
+cali-query: Error reading /data/out.cali: Cannot open file /data/out.cali
+[
+
+]
+END
+
+START
+cali-query -T /data/out.cali
+cali-query: Error reading /data/out.cali: Cannot open file /data/out.cali
+Path 
+END
+broker.info[0]: rc2.0: /bin/bash /entrypoint.sh Exited (rc=0) 58.5s
+broker.info[0]: rc2-success: run->cleanup 58.4941s
+broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.1s
+broker.info[0]: cleanup.1: flux resource acquire-mute Exited (rc=0) 0.1s
+broker.info[0]: cleanup.2: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.1s
+broker.info[0]: cleanup.3: flux queue idle --quiet Exited (rc=0) 0.1s
+broker.info[0]: cleanup-success: cleanup->shutdown 0.315452s
+broker.info[0]: children-complete: shutdown->finalize 45.6946ms
+broker.info[0]: rc3.0: running /etc/flux/rc3.d/01-sched-fluxion
+broker.info[0]: rc3.0: /etc/flux/rc3 Exited (rc=0) 0.1s
+broker.info[0]: rc3-success: finalize->goodbye 81.2298ms
+broker.info[0]: goodbye: goodbye->exit 0.024387ms

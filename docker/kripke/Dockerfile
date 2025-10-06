@@ -1,10 +1,6 @@
 FROM ubuntu:24.04 AS builder
 ENV DEBIAN_FRONTEND=noninteractive
 
-# docker build  --network host -f Dockerfile.base -t ghcr.io/rse-ops/flux-arm:arm64-noble .
-# docker push ghcr.io/rse-ops/flux-arm:arm64-noble
-# lmp -v x 2 -v y 2 -v z 2 -in in.reaxff.hns -nocite
-
 RUN apt-get update && apt-get install -y build-essential \
     tar \
     autoconf \
@@ -225,5 +221,5 @@ RUN export VERSION="1.1.0" && \
     tar -zxf oras_${VERSION}_*.tar.gz -C oras-install/ && \
     mv oras-install/oras /usr/local/bin/ && \
     rm -rf oras_${VERSION}_*.tar.gz oras-install/
-
-COPY ./caliper.conf /caliper.conf
+    
+COPY ./entrypoint.sh /entrypoint.sh
