@@ -51,3 +51,8 @@ variable "subnetwork" {
     description = "Subnetwork to deploy to"
     type        = string
 }
+
+variable "subnetwork_project" {
+    description = "Subnetwork to deploy to"
+    type        = string
+}

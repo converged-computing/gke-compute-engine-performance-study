@@ -1,7 +1,7 @@
 #define BENCHMARK "OSU MPI%s Latency Test"
 /*
  * Copyright (C) 2002-2021 the Network-Based Computing Laboratory
- * (NBCL), The Ohio State University. 
+ * (NBCL), The Ohio State University.
  *
  * Contact: Dr. D. K. Panda (panda@cse.ohio-state.edu)
  *
@@ -136,12 +136,17 @@ main (int argc, char *argv[])
 
         for (i = 0; i < options.iterations + options.skip; i++) {
 
+            /****************** CALIPER CORRECTION START ******************/
+
+            if (i >= options.skip) {
+                // Both ranks begin the annotation for the "round_trip" region
+                // and set the associated message size metadata.
+                CALI_MARK_BEGIN("round_trip");
+                cali_set_int_byname("msg_size", size);
+            }
+
             if (myid == 0) {
                 if (i >= options.skip) {
-                    // This starts a named region for a "round-trip"
-                    CALI_MARK_BEGIN("round_trip");
-                    // Attach message size metadata
-                    cali_set_int_byname("msg_size", size);
                     t_start = MPI_Wtime();
                 }
 #ifdef _ENABLE_CUDA_KERNEL_
@@ -159,8 +164,6 @@ main (int argc, char *argv[])
                 if (i >= options.skip) {
                     t_end = MPI_Wtime();
                     t_total += calculate_total(t_start, t_end, t_lo);
-                    cali_end_byname("msg_size");
-                    CALI_MARK_END("round_trip");
                 }
             } else if (myid == 1) {
 #ifdef _ENABLE_CUDA_KERNEL_
@@ -176,6 +179,12 @@ main (int argc, char *argv[])
 #endif /* #ifdef _ENABLE_CUDA_KERNEL_ */
                 MPI_CHECK(MPI_Send(s_buf, size, MPI_CHAR, 0, 1, MPI_COMM_WORLD));
             }
+            
+            if (i >= options.skip) {
+                // Both ranks must end the region annotation.
+                CALI_MARK_END("round_trip");
+            }
+            /******************* CALIPER CORRECTION END *******************/
         }
 
         if (myid == 0) {

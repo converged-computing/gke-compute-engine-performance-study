@@ -1,0 +1,3 @@
+[
+{"cali.caliper.version":"2.13.0","cali.channel":"event-trace","mpi.world.size":"2","opts:output":"/tmp/out.cali","opts:trace.mpi":"true"}
+]

@@ -19,7 +19,7 @@ variable "compact_placement" {
 variable "family" {
     description = "The source X86 image family prefix to use"
     type        = string
-    default     = "flux-framework"
+    default     = "flux-compute-engine-caliper"
 }
 
 variable "gpu" {

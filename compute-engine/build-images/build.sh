@@ -213,7 +213,7 @@ sudo apt-get update && \
 # Install oras for saving artifacts
 cd /opt
 VERSION="1.2.0" && \
-    curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_arm64.tar.gz" && \
+    curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_amd64.tar.gz" && \
     mkdir -p oras-install/ && \
     tar -zxf oras_${VERSION}_*.tar.gz -C oras-install/ && \
     sudo mv oras-install/oras /usr/local/bin/ && \
@@ -278,3 +278,31 @@ cmake -C ../host-configs/gke.cmake \
       -DENABLE_MPI=ON \
       -DCMAKE_CXX_COMPILER=mpicxx ../ && make -j 8 && \
     sudo mv /opt/Kripke/build/kripke.exe /usr/local/bin/kripke
+    
+# Install Singularity and pull images
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz
+rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
+cd /tmp
+export APPTAINER_VERSION=1.4.3 # Change this to the latest version if needed
+
+# Download the source code
+wget https://github.com/apptainer/apptainer/releases/download/v${APPTAINER_VERSION}/apptainer-${APPTAINER_VERSION}.tar.gz
+tar -xzf apptainer-${APPTAINER_VERSION}.tar.gz
+cd apptainer-${APPTAINER_VERSION}
+
+# Configure, compile, and install
+export PATH=/usr/local/go/bin:$PATH
+./mconfig
+make -C ./builddir -j$(nproc)
+sudo make -C ./builddir install
+
+# Install containers
+mkdir -p /opt/containers
+sudo chown $(id -u) /opt/containers
+cd /opt/containers
+singularity pull docker://ghcr.io/converged-computing/google-performance-study:osu-caliper-test
+singularity pull docker://ghcr.io/converged-computing/google-performance-study:osu-test
+singularity pull docker://ghcr.io/converged-computing/google-performance-study:kripke-caliper-test
+singularity pull docker://ghcr.io/converged-computing/google-performance-study:kripke-test
+
+
