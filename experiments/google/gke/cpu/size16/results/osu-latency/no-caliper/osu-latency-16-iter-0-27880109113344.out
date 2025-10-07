@@ -1,0 +1,37 @@
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+0                      17.94
+1                      19.01
+2                      19.85
+4                      19.84
+8                      19.83
+16                     19.85
+32                     19.90
+64                     19.93
+128                    19.99
+256                    20.95
+512                    21.29
+1024                   21.50
+2048                   34.54
+4096                   39.32
+8192                   35.40
+16384                  38.89
+32768                  45.54
+65536                  95.07
+131072                117.44
+262144                144.82
+524288                199.85
+1048576               297.31
+2097152               510.06
+4194304               886.04
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["/usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}, "cpu-affinity": "per-task"}}, "constraints": {"hostlist": ["osu-10,osu-6"]}}, "user": {"study_id": "osu-latency-16-iter-0"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759857132.3140106,"name":"init"}
+{"timestamp":1759857132.314652,"name":"starting"}
+{"timestamp":1759857132.3250668,"name":"shell.init","context":{"service":"0-shell-fDdN4mjyy","leader-rank":6,"size":2}}
+{"timestamp":1759857132.3268239,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1759857144.390511,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":89,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759857144.3926153,"name":"complete","context":{"status":0}}
+{"timestamp":1759857144.3926351,"name":"done"}
+

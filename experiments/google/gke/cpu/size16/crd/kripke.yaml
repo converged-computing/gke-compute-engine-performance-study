@@ -1,0 +1,41 @@
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  name: kripke
+
+spec:
+  # The number of pods (and therefore nodes) for this job.
+  size: 16
+  tasks: 768
+  interactive: true
+  logging:
+    quiet: false
+
+  flux:
+    optionFlags: "-o cpu-affinity=per-task"
+    container:
+      disable: true
+
+  containers:
+    - image: ghcr.io/converged-computing/google-performance-study:kripke-test
+      imagePullPolicy: Always
+      volumes:
+        my-empty-dir:
+          emptyDir: true
+          emptyDirMedium: "memory"        
+      command: >
+        kripke
+        --layout DGZ
+        --dset 16
+        --gset 16
+        --groups 16
+        --niter 500
+        --legendre 2
+        --quad 16
+        --zones 256,192,128
+        --procs 8,6,4 
+      resources:
+        limits:
+          cpu: "46"
+        requests:
+          cpu: "46"

@@ -1,0 +1,37 @@
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+0                      48.02
+1                      47.99
+2                      48.38
+4                      48.22
+8                      48.19
+16                     48.14
+32                     48.18
+64                     48.15
+128                    48.27
+256                    49.12
+512                    49.60
+1024                   50.05
+2048                   67.04
+4096                   64.72
+8192                   70.65
+16384                  72.75
+32768                  77.80
+65536                 196.72
+131072                214.92
+262144                243.21
+524288                294.25
+1048576               394.62
+2097152               640.06
+4194304               976.86
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["/usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}, "cpu-affinity": "per-task"}}, "constraints": {"hostlist": ["osu-3,osu-10"]}}, "user": {"study_id": "osu-latency-16-iter-0"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759855869.1388423,"name":"init"}
+{"timestamp":1759855869.1392949,"name":"starting"}
+{"timestamp":1759855869.1495097,"name":"shell.init","context":{"service":"0-shell-f42ftqAxP","leader-rank":3,"size":2}}
+{"timestamp":1759855869.1512203,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1759855891.5837214,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":85,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759855891.5861239,"name":"complete","context":{"status":0}}
+{"timestamp":1759855891.5861425,"name":"done"}
+
