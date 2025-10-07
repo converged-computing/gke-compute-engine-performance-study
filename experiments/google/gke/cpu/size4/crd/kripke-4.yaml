@@ -19,6 +19,10 @@ spec:
   containers:
     - image: ghcr.io/converged-computing/google-performance-study:kripke-test
       imagePullPolicy: Always
+      volumes:
+        my-empty-dir:
+          emptyDir: true
+          emptyDirMedium: "memory"        
       command: >
         kripke
         --layout DGZ

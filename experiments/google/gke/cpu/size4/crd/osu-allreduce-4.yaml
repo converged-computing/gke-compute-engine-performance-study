@@ -6,6 +6,7 @@ metadata:
 spec:
   size: 4
   tasks: 192
+  interactive: true
   logging:
     quiet: false
 
@@ -17,6 +18,10 @@ spec:
   containers:
     - image: ghcr.io/converged-computing/google-performance-study:osu-test
       imagePullPolicy: Always      
+      volumes:
+        my-empty-dir:
+          emptyDir: true
+          emptyDirMedium: "memory"        
       command: /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
       resources:
         limits:

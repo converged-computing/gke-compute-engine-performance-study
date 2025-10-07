@@ -1,0 +1,81 @@
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+== CALIPER: (0): Available services: aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel event-trace
+== CALIPER: (0): event-trace: registered async_event service
+== CALIPER: (0): event-trace: event: Using region level 0
+== CALIPER: (0): event-trace: event: Marked attribute comm.region
+== CALIPER: (0): event-trace: event: Marked attribute loop
+== CALIPER: (0): event-trace: event: Marked attribute phase
+== CALIPER: (0): event-trace: event: Marked attribute region
+== CALIPER: (0): event-trace: Registered event trigger service
+== CALIPER: (0): event-trace: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): event-trace: Registered MPI service
+== CALIPER: (0): event-trace: Registered timer service
+== CALIPER: (0): event-trace: Registered trace service
+== CALIPER: (0): event-trace: event: Marked attribute mpi.function
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): event-trace: event: Marked attribute msg_size
+0                      49.40
+1                      49.28
+2                      49.46
+4                      49.30
+8                      49.44
+16                     49.38
+32                     49.54
+64                     49.34
+128                    49.75
+256                    50.52
+512                    50.87
+1024                   51.31
+2048                   65.26
+4096                   67.16
+8192                   68.57
+16384                  69.81
+32768                  76.58
+65536                 191.76
+131072                209.41
+262144                232.31
+524288                274.52
+1048576               359.74
+2097152               617.42
+4194304               993.31
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): event-trace: Flushing Caliper data
+== CALIPER: (0): event-trace: trace: Flushed 1119008 snapshots.
+== CALIPER: (0): event-trace: Recorder: Wrote 1119151 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing channel event-trace
+== CALIPER: (0): event-trace: Finishing mpi service
+== CALIPER: (0): event-trace: trace: 24 MiB reserved, 22.4982 MiB used, 12 chunks.
+== CALIPER: (0): event-trace: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
+== CALIPER: (0): event-trace channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 1 blocks, 217 nodes
+   Metadata memory pool: 1 MiB reserved, 19.1455 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["/usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}, "cpu-affinity": "per-task"}}, "constraints": {"hostlist": ["osu-0,osu-7"]}}, "user": {"study_id": "osu-latency-8-iter-0"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759818286.5063498,"name":"init"}
+{"timestamp":1759818286.5162845,"name":"shell.init","context":{"service":"0-shell-f2BcTZDu9","leader-rank":0,"size":2}}
+{"timestamp":1759818286.5067172,"name":"starting"}
+{"timestamp":1759818286.517966,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1759818312.2264574,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":162,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759818312.2286646,"name":"complete","context":{"status":0}}
+{"timestamp":1759818312.2286849,"name":"done"}
+

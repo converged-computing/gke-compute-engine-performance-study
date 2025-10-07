@@ -49,7 +49,6 @@ done
 
 ### Kripke
 
-
 ```bash
 kubectl apply -f crd/kripke-4.yaml
 flux proxy local:///mnt/flux/view/run/flux/local bash
@@ -76,7 +75,7 @@ bash ./save.sh ./results/kripke/no-caliper
 flux job purge --force --age-limit=0
 ```
 ```bash
-oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-$size-kripke-no-caliper ./results
+oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-$size-kripke-no-caliper-1 ./results
 ```
 
 # With caliper
@@ -86,7 +85,7 @@ kubectl apply -f crd/kripke-caliper-4.yaml
 flux proxy local:///mnt/flux/view/run/flux/local bash
 
 mkdir -p ./results/kripke/caliper
-for i in $(seq 2 5); do     
+for i in $(seq 1 5); do     
   echo "Running iteration $i"
   export CALI_LOG_VERBOSITY="2"
   export CALI_CONFIG=spot,output=/tmp/out.cali,profile.mpi,timeseries,timeseries.iteration_interval=1,timeseries.maxrows=500,mpi.message.count,mpi.message.size
@@ -104,40 +103,75 @@ flux job purge --force --age-limit=0
 ```
 
 ```bash
-oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-$size-kripke-caliper ./results
+oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-$size-kripke-caliper-1 ./results
 ```
 
 ### OSU
 
 ```bash
-outdir=results/size-4/osu-latency
-mkdir -p $outdir
-for iter in $(seq 1 10)
-  do
-  kubectl apply -f crd/osu-latency.yaml
-  sleep 5
-  time kubectl wait --for=condition=ready pod -l job-name=osu --timeout=600s
-  sleep 5
-  pod=$(kubectl get pods -o json | jq  -r .items[0].metadata.name)
-  kubectl logs ${pod} -f  |& tee $outdir/$iter.out
-  sleep 5
-  kubectl delete -f crd/osu-latency.yaml  
+# use this for both benchmarks
+kubectl apply -f crd/osu-allreduce-4.yaml
+kubectl exec -it osu-0-xxx -- bash
+flux proxy local:///mnt/flux/view/run/flux/local bash
+```
+
+Write this script to file:
+
+```
+#/bin/bash
+
+nodes=$1
+app=$2
+
+# At most 28 combinations, N nodes 2 at a time
+hosts=$(flux run -N $1 hostname | shuf -n 28 | tr '\n' ' ')
+list=${hosts}
+
+dequeue_from_list() {
+  shift;
+  list=$@
+}
+
+iter=0
+for i in $hosts; do
+  dequeue_from_list $list
+  for j in $list; do
+    echo "${i} ${j}"
+    time flux run -N 2 -n 2 \
+      --env OMPI_MCA_btl_vader_single_copy_mechanism=none \
+      --setattr=user.study_id=$app-$nodes-iter-$iter \
+      --requires="hosts:${i},${j}" \
+      -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+  done
+done
+```
+
+And run:
+
+```bash
+mkdir -p ./results/osu-latency/no-caliper
+bash run.sh 4 osu-latency
+bash ./save.sh ./results/osu-latency/no-caliper
+flux job purge --force --age-limit=0
+
+mkdir -p ./results/osu-allreduce/no-caliper
+for i in $(seq 1 5); do 
+  echo "Running iteration $i"
+  time flux run --setattr=user.study_id=$app-$size-iter-$i -N4 -n 192 --env OMPI_MCA_btl_vader_single_copy_mechanism=none -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce |& tee ./results/osu-allreduce/no-caliper/log-$i.out
 done
 
-outdir=results/size-4/osu-allreduce-4
-mkdir -p $outdir
-for iter in $(seq 1 10)
-  do
-  kubectl apply -f crd/osu-allreduce-4.yaml
-  sleep 5
-  time kubectl wait --for=condition=ready pod -l job-name=osu --timeout=600s
-  sleep 5
-  pod=$(kubectl get pods -o json | jq  -r .items[0].metadata.name)
-  kubectl logs ${pod} -f  |& tee $outdir/$iter.out
-  sleep 5
-  kubectl delete -f crd/osu-allreduce-4.yaml  
-done
+bash ./save.sh ./results/osu-allreduce/no-caliper
+flux job purge --force --age-limit=0
+```
 
+```bash
+oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-$size-osu-1 ./results
+```
+
+Now with caliper.
+
+```bash
+kubectl apply -f crd/osu-caliper.yaml
 kubectl exec -it osu-0-xxx -- bash
 flux proxy local:///mnt/flux/view/run/flux/local bash
 
@@ -145,50 +179,94 @@ outdir=results/osu-latency
 mkdir -p $outdir
 mkdir -p /data
 export CALI_LOG_VERBOSITY="2"
+```
 
-for iter in $(seq 1 10)
-  do
-  export CALI_CONFIG=spot,output=/data/out.cali,profile.mpi,mpi.message.count,mpi.message.size
-  flux run -o cpu-affinity=per-task -N 2 -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency > $outdir/log-$iter.out
+Write this to file.
+
+```bash
+#/bin/bash
+
+nodes=$1
+app=$2
+
+# At most 28 combinations, N nodes 2 at a time
+hosts=$(flux run -N $1 hostname | shuf -n 28 | tr '\n' ' ')
+list=${hosts}
+
+dequeue_from_list() {
+  shift;
+  list=$@
+}
+
+iter=0
+# We can only see index / rank 0 filesystem
+i=osu-0
+for j in $hosts; do
+    if [[ "${i}" == "${j}" ]]; then
+        continue
+    fi
+    export CALI_LOG_VERBOSITY="2"
+    export CALI_CONFIG=spot,output=/tmp/out.cali,profile.mpi,mpi.message.count,mpi.message.size
+    time flux run -N 2 -n 2 \
+      --env OMPI_MCA_btl_vader_single_copy_mechanism=none \
+      --setattr=user.study_id=$app-$nodes-iter-$iter \
+      --requires="hosts:${i},${j}" \
+      -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+    unset CALI_CONFIG
+    sleep 3
+    cali-query -Gj /tmp/out.cali |& tee ./results/osu-latency/caliper/cali-query-Gj-$i-$j.out
+    cali-query -T /tmp/out.cali  |& tee ./results/osu-latency/caliper/cali-query-T-$i-$j.out
+    mv /tmp/out.cali ./results/osu-latency/caliper/cali-$i-$j.out
+    export CALI_CONFIG=trace.mpi,event-trace
+    time flux run -N 2 -n 2 \
+      --env OMPI_MCA_btl_vader_single_copy_mechanism=none \
+      --setattr=user.study_id=$app-$nodes-iter-$iter \
+      --requires="hosts:${i},${j}" \
+      -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+    unset CALI_CONFIG
+    sleep 3
+    mkdir -p ./results/osu-latency/caliper/$i-$j
+    mv *.cali ./results/osu-latency/caliper/$i-$j/
+  done
+```
+
+Run:
+
+```
+mkdir -p ./results/osu-latency/caliper
+bash ./caliper.sh 4 osu-latency
+
+# Save results
+bash ./save.sh ./results/osu-latency/caliper
+flux job purge --force --age-limit=0
+```
+
+Now osu all reduce.
+
+```bash
+mkdir -p ./results/osu-allreduce/caliper
+for i in $(seq 1 5); do 
+  echo "Running iteration $i"
+  export CALI_CONFIG=spot,output=/tmp/out.cali,profile.mpi,mpi.message.count,mpi.message.size
+  flux run --setattr=user.study_id=$app-$size-iter-$i -N4 -n 192 --env OMPI_MCA_btl_vader_single_copy_mechanism=none -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce |& tee ./results/osu-allreduce/caliper/log-$i.out
   unset CALI_CONFIG
   sleep 3
+  cali-query -Gj /tmp/out.cali |& tee ./results/osu-allreduce/caliper/cali-query-Gj-$i.out
+  cali-query -T /tmp/out.cali  |& tee ./results/osu-allreduce/caliper/cali-query-T-$i.out
+  mv /tmp/out.cali ./results/osu-allreduce/caliper/cali-$i.out
 
-  cali-query -Gj /data/out.cali > $outdir/cali-query-Gj-$iter.out
-  cali-query -T /data/out.cali > $outdir/cali-query-T-$iter.out
-  mv /data/out.cali $outdir/cali-$iter.out
-
-#  export CALI_CONFIG=trace.mpi,event-trace,output=/data/out.cali
-#  flux run -o cpu-affinity=per-task -N 2 -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency > $outdir/log-trace-$iter.out
-#  unset CALI_CONFIG
-#  sleep 3
-#  cali-query -Gj /data/out.cali > $outdir/cali-query-trace-Gj-$iter.out
-#  cali-query -T /data/out.cali > $outdir/cali-query-trace-T-$iter.out
-#  mv /data/out.cali $outdir/cali-trace-$iter.out
-done
-
-echo "OSU-ALLREDUCE"
-
-outdir=results/osu-allreduce
-mkdir -p $outdir
-
-for iter in $(seq 1 10)
-  do
-  export CALI_CONFIG=spot,output=/data/out.cali,profile.mpi,mpi.message.count,mpi.message.size
-  flux run -o cpu-affinity=per-task -N 4 -n 192 /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce  |& tee $outdir/log-$iter.out
-  unset CALI_CONFIG
-  sleep 3
-
-  cali-query -Gj /data/out.cali > $outdir/cali-query-Gj-$iter.out
-  cali-query -T /data/out.cali > $outdir/cali-query-T-$iter.out
-  mv /data/out.cali $outdir/cali-$iter.out
-
+  # With trace
   export CALI_CONFIG=trace.mpi,event-trace
-  flux run -o cpu-affinity=per-task -N 4 -n 192 /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce |& tee $outdir/log-$iter-trace.out
+  flux run --setattr=user.study_id=$app-$size-iter-$i -N4 -n 192 --env OMPI_MCA_btl_vader_single_copy_mechanism=none -o cpu-affinity=per-task /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce |& tee ./results/osu-allreduce/caliper/log-$i.out
   unset CALI_CONFIG
   sleep 3
-  mkdir -p $outdir/$iter/
-  mv *.cali $outdir/$iter/
+  mkdir -p ./results/osu-allreduce/caliper/trace-$i/
+  # Note that the query T freezes, so I'm just saving output
+  mv *.cali ./results/osu-allreduce/caliper/trace-$i/
 done
+
+bash ./save.sh ./results/osu-allreduce/caliper
+flux job purge --force --age-limit=0
 ```
 
 Push oras
@@ -207,7 +285,7 @@ VERSION="1.2.0" && \
 
 ```bash
 oras login ghcr.io
-oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-4-osu-2 ./results
+oras push ghcr.io/converged-computing/google-performance-study:gke-cpu-4-osu-3 ./results
 ```
 
 Clean up

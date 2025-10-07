@@ -18,7 +18,11 @@ spec:
 
   containers:
     - image: ghcr.io/converged-computing/google-performance-study:osu-caliper-test
-      imagePullPolicy: Always      
+      imagePullPolicy: Always
+      volumes:
+        my-empty-dir:
+          emptyDir: true
+          emptyDirMedium: "memory"              
       command: /bin/bash /entrypoint.sh
       launcher: true
       resources:

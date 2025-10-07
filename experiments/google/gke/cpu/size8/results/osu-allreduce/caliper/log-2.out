@@ -1,0 +1,67 @@
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel event-trace
+== CALIPER: (0): event-trace: registered async_event service
+== CALIPER: (0): event-trace: event: Using region level 0
+== CALIPER: (0): event-trace: event: Marked attribute comm.region
+== CALIPER: (0): event-trace: event: Marked attribute loop
+== CALIPER: (0): event-trace: event: Marked attribute phase
+== CALIPER: (0): event-trace: event: Marked attribute region
+== CALIPER: (0): event-trace: Registered event trigger service
+== CALIPER: (0): event-trace: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): event-trace: Registered MPI service
+== CALIPER: (0): event-trace: Registered timer service
+== CALIPER: (0): event-trace: Registered trace service
+== CALIPER: (0): event-trace: event: Marked attribute mpi.function
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): event-trace: event: Marked attribute msg_size
+== CALIPER: (0): event-trace: event: Marked attribute num_procs
+4                     408.12
+8                     419.38
+16                    349.32
+32                    380.41
+64                    410.96
+128                   414.84
+256                   437.21
+512                   450.38
+1024                  394.18
+2048                  475.26
+4096                  861.24
+8192                  906.99
+16384                 908.31
+32768                 927.66
+65536                1228.24
+131072               1507.64
+262144               1323.30
+524288               1731.89
+1048576              2809.37
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): event-trace: Flushing Caliper data
+== CALIPER: (0): event-trace: trace: Flushed 150590 snapshots.
+== CALIPER: (0): event-trace: Recorder: Wrote 150782 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing channel event-trace
+== CALIPER: (0): event-trace: Finishing mpi service
+== CALIPER: (0): event-trace: trace: 4 MiB reserved, 2.92428 MiB used, 2 chunks.
+== CALIPER: (0): event-trace: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
+== CALIPER: (0): event-trace channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 2 blocks, 267 nodes
+   Metadata memory pool: 1 MiB reserved, 37.2568 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished

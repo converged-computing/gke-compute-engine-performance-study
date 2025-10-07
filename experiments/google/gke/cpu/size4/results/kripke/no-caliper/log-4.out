@@ -611,25 +611,25 @@ Timers
 
   Timer                    Count       Seconds
   ----------------  ------------  ------------
-  Generate                     1       0.07592
-  LPlusTimes                 500      26.12764
-  LTimes                     500      26.30517
-  Population                 500      13.73596
-  Scattering                 500     141.99240
-  Solve                        1     302.44511
-  Source                     500       0.20645
-  SweepSolver                500      69.92545
-  SweepSubdomain          128000      45.31985
+  Generate                     1       0.08174
+  LPlusTimes                 500      25.93371
+  LTimes                     500      25.48589
+  Population                 500      13.67594
+  Scattering                 500     139.56774
+  Solve                        1     303.05709
+  Source                     500       0.18469
+  SweepSolver                500      74.13969
+  SweepSubdomain          128000      44.72519
 
 TIMER_NAMES:Generate,LPlusTimes,LTimes,Population,Scattering,Solve,Source,SweepSolver,SweepSubdomain
-TIMER_DATA:0.075923,26.127638,26.305167,13.735962,141.992398,302.445112,0.206451,69.925452,45.319852
+TIMER_DATA:0.081737,25.933710,25.485889,13.675937,139.567741,303.057087,0.184692,74.139690,44.725191
 
 Figures of Merit
 ================
 
-  Throughput:         2.662653e+09 [unknowns/(second/iteration)]
-  Grind time :        3.755653e-10 [(seconds/iteration)/unknowns]
-  Sweep efficiency :  64.81167 [100.0 * SweepSubdomain time / SweepSolver time]
+  Throughput:         2.657276e+09 [unknowns/(second/iteration)]
+  Grind time :        3.763252e-10 [(seconds/iteration)/unknowns]
+  Sweep efficiency :  60.32557 [100.0 * SweepSubdomain time / SweepSolver time]
   Number of unknowns: 1610612736
 
 END

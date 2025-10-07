@@ -1,0 +1,37 @@
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+0                      50.44
+1                      49.88
+2                      49.91
+4                      49.92
+8                      49.44
+16                     50.53
+32                     49.22
+64                     49.80
+128                    50.74
+256                    51.65
+512                    50.47
+1024                   50.93
+2048                   68.32
+4096                   65.30
+8192                   70.56
+16384                  73.79
+32768                  78.84
+65536                 202.06
+131072                218.65
+262144                249.27
+524288                304.49
+1048576               412.14
+2097152               669.11
+4194304              1024.63
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["/usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}, "cpu-affinity": "per-task"}}, "constraints": {"hostlist": ["osu-7,osu-1"]}}, "user": {"study_id": "osu-latency-8-iter-0"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759817543.4212406,"name":"init"}
+{"timestamp":1759817543.421716,"name":"starting"}
+{"timestamp":1759817543.4318473,"name":"shell.init","context":{"service":"0-shell-f3gPg2yJo","leader-rank":1,"size":2}}
+{"timestamp":1759817543.4335818,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1759817566.5638452,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":77,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759817566.5659626,"name":"complete","context":{"status":0}}
+{"timestamp":1759817566.5659847,"name":"done"}
+

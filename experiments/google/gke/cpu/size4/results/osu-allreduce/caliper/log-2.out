@@ -8,63 +8,60 @@
 == CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
 == CALIPER: (0): builtin.configmgr: Registered MPI service
 == CALIPER: (0): builtin.configmgr: Registered mpiflush service
-== CALIPER: (0): Creating channel spot
-== CALIPER: (0): spot: Registered aggregation service
-== CALIPER: (0): spot: event: Using region level 0
-== CALIPER: (0): spot: event: Marked attribute comm.region
-== CALIPER: (0): spot: event: Marked attribute loop
-== CALIPER: (0): spot: event: Marked attribute phase
-== CALIPER: (0): spot: event: Marked attribute region
-== CALIPER: (0): spot: Registered event trigger service
-== CALIPER: (0): spot: mpiwrap: Using GOTCHA wrappers.
-== CALIPER: (0): spot: Registered MPI service
-== CALIPER: (0): spot: Registered timer service
-== CALIPER: (0): spot: event: Marked attribute mpi.function
-== CALIPER: (0): spot: Enabling MPI message tracing
+== CALIPER: (0): Creating channel event-trace
+== CALIPER: (0): event-trace: registered async_event service
+== CALIPER: (0): event-trace: event: Using region level 0
+== CALIPER: (0): event-trace: event: Marked attribute comm.region
+== CALIPER: (0): event-trace: event: Marked attribute loop
+== CALIPER: (0): event-trace: event: Marked attribute phase
+== CALIPER: (0): event-trace: event: Marked attribute region
+== CALIPER: (0): event-trace: Registered event trigger service
+== CALIPER: (0): event-trace: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): event-trace: Registered MPI service
+== CALIPER: (0): event-trace: Registered timer service
+== CALIPER: (0): event-trace: Registered trace service
+== CALIPER: (0): event-trace: event: Marked attribute mpi.function
 == CALIPER: (0): Registered builtin ConfigManager
-== CALIPER: (0): spot: event: Marked attribute msg_size
-== CALIPER: (0): spot: event: Marked attribute num_procs
-4                     330.55
-8                     308.70
-16                    328.34
-32                    305.56
-64                    306.25
-128                   308.54
-256                   348.89
-512                   311.60
-1024                  324.58
-2048                  388.91
-4096                  414.89
-8192                  420.78
-16384                 751.39
-32768                 586.14
-65536                1017.99
-131072               1846.22
-262144                844.37
-524288               1158.91
-1048576              1842.03
+== CALIPER: (0): event-trace: event: Marked attribute msg_size
+== CALIPER: (0): event-trace: event: Marked attribute num_procs
+4                     282.49
+8                     304.21
+16                    318.23
+32                    297.08
+64                    309.32
+128                   320.84
+256                   343.80
+512                   336.20
+1024                  338.62
+2048                  382.41
+4096                  389.02
+8192                  411.82
+16384                 853.15
+32768                 586.13
+65536                 863.71
+131072               1799.67
+262144                966.58
+524288               1071.24
+1048576              1566.84
 == CALIPER: (0): builtin.configmgr: Flushing Caliper data
-== CALIPER: (0): spot: CustomOutputController::flush(): using MPI
-== CALIPER: (0): OutputCommMpi: MPI is available
-== CALIPER: (0): spot: Flushing Caliper data
-== CALIPER: (0): spot: Aggregate: flushed 88 snapshots.
-== CALIPER: (0): spot: Wrote 129 records.
+== CALIPER: (0): event-trace: Flushing Caliper data
+== CALIPER: (0): event-trace: trace: Flushed 150590 snapshots.
+== CALIPER: (0): event-trace: Recorder: Wrote 150782 records.
 == CALIPER: (0): Finalizing ... 
 == CALIPER: (0): builtin.configmgr: Flushing Caliper data
 == CALIPER: (0): Releasing channel builtin.configmgr
 == CALIPER: (0): builtin.configmgr: Finishing mpi service
 == CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
-== CALIPER: (0): CaliperMetadataDB: stored 225 nodes, 122 strings.
-== CALIPER: (0): Releasing channel spot
-== CALIPER: (0): spot: Aggregate: Releasing aggregation DB.
-  max hash len: 3, 94 entries, 651 kernels, 1.5 MiB reserved.
-== CALIPER: (0): spot: Finishing mpi service
-== CALIPER: (0): spot channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing channel event-trace
+== CALIPER: (0): event-trace: Finishing mpi service
+== CALIPER: (0): event-trace: trace: 4 MiB reserved, 2.92266 MiB used, 2 chunks.
+== CALIPER: (0): event-trace: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
+== CALIPER: (0): event-trace channel blackboard: max 1 entries (0.0979432% occupancy).
 == CALIPER: (0): Releasing Caliper global data.
   Max active channels: 1
 == CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
 == CALIPER: (0): Releasing Caliper thread data: 
-  Metadata tree: 2 blocks, 259 nodes
-   Metadata memory pool: 1 MiB reserved, 38.123 KiB used
+  Metadata tree: 2 blocks, 267 nodes
+   Metadata memory pool: 1 MiB reserved, 37.2568 KiB used
   Thread blackboard: max 4 entries (0.391773% occupancy).
 == CALIPER: (0): Finished

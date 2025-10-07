@@ -642,27 +642,27 @@ Timers
 
   Timer                    Count       Seconds
   ----------------  ------------  ------------
-  Generate                     1       0.08442
-  LPlusTimes                 500      26.09063
-  LTimes                     500      25.97673
-  Population                 500      14.87830
-  Scattering                 500     142.06554
-  Solve                        1     313.60175
-  Source                     500       0.28406
-  SweepSolver                500      79.71220
-  SweepSubdomain          128000      44.99352
+  Generate                     1       0.07942
+  LPlusTimes                 500      25.78501
+  LTimes                     500      26.03225
+  Population                 500      14.75025
+  Scattering                 500     143.66430
+  Solve                        1     315.19383
+  Source                     500       0.27893
+  SweepSolver                500      80.75539
+  SweepSubdomain          128000      44.92277
 
 TIMER_NAMES:Generate,LPlusTimes,LTimes,Population,Scattering,Solve,Source,SweepSolver,SweepSubdomain
-TIMER_DATA:0.084422,26.090629,25.976735,14.878298,142.065536,313.601748,0.284061,79.712200,44.993520
-== CALIPER: (0): spot: Flushing Caliper data
+TIMER_DATA:0.079420,25.785010,26.032246,14.750252,143.664304,315.193827,0.278932,80.755387,44.922770
 
 Figures of Merit
 ================
 
-  Throughput:         2.567927e+09 [unknowns/(second/iteration)]
-  Grind time :        3.894192e-10 [(seconds/iteration)/unknowns]
-  Sweep efficiency :  56.44496 [100.0 * SweepSubdomain time / SweepSolver time]
+  Throughput:         2.554956e+09 [unknowns/(second/iteration)]
+  Grind time :        3.913962e-10 [(seconds/iteration)/unknowns]
+  Sweep efficiency :  55.62820 [100.0 * SweepSubdomain time / SweepSolver time]
   Number of unknowns: 1610612736
+== CALIPER: (0): spot: Flushing Caliper data
 == CALIPER: (0): spot: adiak_import: Imported 29 adiak values
 == CALIPER: (0): spot: Aggregate: flushed 44 snapshots.
 == CALIPER: (0): spot.timeseries: trace: Flushed 502 snapshots.

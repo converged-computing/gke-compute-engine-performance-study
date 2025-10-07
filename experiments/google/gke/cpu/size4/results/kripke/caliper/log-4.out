@@ -642,26 +642,26 @@ Timers
 
   Timer                    Count       Seconds
   ----------------  ------------  ------------
-  Generate                     1       0.07693
-  LPlusTimes                 500      25.79751
-  LTimes                     500      26.14301
-  Population                 500      15.34239
-  Scattering                 500     144.82804
-  Solve                        1     314.08772
-  Source                     500       0.28021
-  SweepSolver                500      77.29818
-  SweepSubdomain          128000      44.67931
-
+  Generate                     1       0.07931
+  LPlusTimes                 500      25.73963
+  LTimes                     500      26.22562
+  Population                 500      14.27855
+  Scattering                 500     144.76747
+  Solve                        1     313.78241
+  Source                     500       0.28172
+  SweepSolver                500      78.52526
+  SweepSubdomain          128000      44.25408
 == CALIPER: (0): spot: Flushing Caliper data
+
 TIMER_NAMES:Generate,LPlusTimes,LTimes,Population,Scattering,Solve,Source,SweepSolver,SweepSubdomain
-TIMER_DATA:0.076933,25.797509,26.143007,15.342395,144.828038,314.087721,0.280210,77.298184,44.679311
+TIMER_DATA:0.079306,25.739628,26.225617,14.278551,144.767467,313.782405,0.281716,78.525262,44.254076
 
 Figures of Merit
 ================
 
-  Throughput:         2.563954e+09 [unknowns/(second/iteration)]
-  Grind time :        3.900226e-10 [(seconds/iteration)/unknowns]
-  Sweep efficiency :  57.80124 [100.0 * SweepSubdomain time / SweepSolver time]
+  Throughput:         2.566448e+09 [unknowns/(second/iteration)]
+  Grind time :        3.896435e-10 [(seconds/iteration)/unknowns]
+  Sweep efficiency :  56.35648 [100.0 * SweepSubdomain time / SweepSolver time]
   Number of unknowns: 1610612736
 == CALIPER: (0): spot: adiak_import: Imported 29 adiak values
 == CALIPER: (0): spot: Aggregate: flushed 44 snapshots.
@@ -678,7 +678,7 @@ END
 == CALIPER: (0): CaliperMetadataDB: stored 406 nodes, 257 strings.
 == CALIPER: (0): Releasing channel spot.timeseries
 == CALIPER: (0): spot.timeseries: loop_monitor: Triggered 502 snapshots.
-== CALIPER: (0): spot.timeseries: trace: 2 MiB reserved, 18.3008 KiB used, 1 chunks.
+== CALIPER: (0): spot.timeseries: trace: 2 MiB reserved, 18.3018 KiB used, 1 chunks.
 == CALIPER: (0): spot.timeseries: Trace: 1 thread trace buffers acquired, 0 retired, 0 released.
 == CALIPER: (0): spot.timeseries channel blackboard: max 1 entries (0.0979432% occupancy).
 == CALIPER: (0): Releasing channel spot

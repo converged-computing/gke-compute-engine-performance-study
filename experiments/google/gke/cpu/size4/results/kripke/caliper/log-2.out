@@ -642,26 +642,26 @@ Timers
 
   Timer                    Count       Seconds
   ----------------  ------------  ------------
-  Generate                     1       0.07454
-  LPlusTimes                 500      25.95878
-  LTimes                     500      25.92709
-  Population                 500      15.44788
-  Scattering                 500     142.48574
-  Solve                        1     315.11496
-== CALIPER: (0): spot: Flushing Caliper data
-  Source                     500       0.27895
-  SweepSolver                500      80.93251
-  SweepSubdomain          128000      45.75477
+  Generate                     1       0.07845
+  LPlusTimes                 500      26.08566
+  LTimes                     500      26.11885
+  Population                 500      14.88263
+  Scattering                 500     142.38544
+  Solve                        1     315.62351
+  Source                     500       0.28333
+  SweepSolver                500      81.91206
+  SweepSubdomain          128000      45.37854
 
 TIMER_NAMES:Generate,LPlusTimes,LTimes,Population,Scattering,Solve,Source,SweepSolver,SweepSubdomain
-TIMER_DATA:0.074541,25.958781,25.927088,15.447883,142.485742,315.114959,0.278952,80.932506,45.754768
+TIMER_DATA:0.078450,26.085658,26.118850,14.882626,142.385437,315.623514,0.283327,81.912058,45.378542
 
 Figures of Merit
 ================
 
-  Throughput:         2.555595e+09 [unknowns/(second/iteration)]
-  Grind time :        3.912982e-10 [(seconds/iteration)/unknowns]
-  Sweep efficiency :  56.53447 [100.0 * SweepSubdomain time / SweepSolver time]
+  Throughput:         2.551478e+09 [unknowns/(second/iteration)]
+  Grind time :        3.919297e-10 [(seconds/iteration)/unknowns]
+== CALIPER: (0): spot: Flushing Caliper data
+  Sweep efficiency :  55.39910 [100.0 * SweepSubdomain time / SweepSolver time]
   Number of unknowns: 1610612736
 == CALIPER: (0): spot: adiak_import: Imported 29 adiak values
 == CALIPER: (0): spot: Aggregate: flushed 44 snapshots.
