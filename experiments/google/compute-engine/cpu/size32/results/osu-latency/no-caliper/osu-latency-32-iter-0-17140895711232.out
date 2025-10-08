@@ -1,0 +1,49 @@
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+== CALIPER: (0): Available services: adiak_export,adiak_import,aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+0                      16.86
+1                      17.99
+2                      17.98
+4                      17.97
+8                      17.98
+16                     17.97
+32                     18.03
+64                     18.01
+128                    18.21
+256                    18.99
+512                    19.15
+1024                   19.54
+2048                   20.13
+4096                   21.41
+8192                   24.15
+16384                  36.18
+32768                  37.29
+65536                  94.04
+131072                103.16
+262144                131.04
+524288                154.90
+1048576               207.92
+2097152               325.58
+4194304               582.47
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 0
+== CALIPER: (0): Process blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 1 blocks, 55 nodes
+   Metadata memory pool: 1 MiB reserved, 18.168 KiB used
+  Thread blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Finished
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["osu_latency"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/root", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": 0, "nofile": 1024, "as": -1, "rss": -1, "nproc": 1450578}, "cpu-affinity": "per-task"}}, "constraints": {"hostlist": ["flux-4,flux-29"]}}, "user": {"study_id": "osu-latency-32-iter-0"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759898627.1920145,"name":"init"}
+{"timestamp":1759898627.2018714,"name":"shell.init","context":{"service":"0-shell-f8mGDFx7R","leader-rank":4,"size":2}}
+{"timestamp":1759898627.1925368,"name":"starting"}
+{"timestamp":1759898627.2035463,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1759898636.8304827,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":4399,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759898636.8333182,"name":"complete","context":{"status":0}}
+{"timestamp":1759898636.8333325,"name":"done"}
+
