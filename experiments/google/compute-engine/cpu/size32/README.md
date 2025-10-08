@@ -246,7 +246,7 @@ flux job purge --force --age-limit=0
 When they are done:
 
 ```bash
-oras push ghcr.io/converged-computing/google-performance-study:compute-engine-cpu-16 ./results/
+oras push ghcr.io/converged-computing/google-performance-study:compute-engine-cpu-32 ./results/
 ```
 
 ### Clean up
