@@ -1,0 +1,30 @@
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  name: osu
+
+spec:
+  size: 32
+  tasks: 1536
+  interactive: true
+  logging:
+    quiet: false
+
+  flux:
+    optionFlags: "-o cpu-affinity=per-task"
+    container:
+      disable: true
+
+  containers:
+    - image: ghcr.io/converged-computing/google-performance-study:osu-test
+      imagePullPolicy: Always      
+      volumes:
+        my-empty-dir:
+          emptyDir: true
+          emptyDirMedium: "memory"        
+      command: /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+      resources:
+        limits:
+          cpu: "46"
+        requests:
+          cpu: "46"
