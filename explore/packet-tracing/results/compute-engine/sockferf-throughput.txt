@@ -1,0 +1,14 @@
+$ sockperf throughput -i 10.10.10.2  -t 30
+sockperf: == version #3.7-no.git == 
+sockperf[CLIENT] send on:
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: Total of 25105674 messages sent in 30.000 sec
+
+sockperf: NOTE: test was performed, using msg-size=14. For getting maximum throughput consider using --msg-size=1472
+sockperf: Summary: Message Rate is 836847 [msg/sec]
+sockperf: Summary: BandWidth is 11.173 MBps (89.385 Mbps)
+
