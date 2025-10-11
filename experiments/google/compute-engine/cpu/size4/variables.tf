@@ -38,3 +38,15 @@ variable "boot_disk_size_gb" {
   type        = number
   default     = 256
 }
+
+variable "filestore_tier" {
+  description = "The service tier of the Filestore instance. Options: BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD."
+  type        = string
+  default     = "BASIC_SSD"
+}
+
+variable "filestore_capacity_gb" {
+  description = "The capacity of the Filestore share in GB. Minimum is 1024."
+  type        = number
+  default     = 2560
+}

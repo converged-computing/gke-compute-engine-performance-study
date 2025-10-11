@@ -1,0 +1,41 @@
+sochat1_llnl_gov@flux-1:~$ iperf3 -c 10.10.10.2 -t 30
+Connecting to host 10.10.10.2, port 5201
+[  5] local 10.10.10.3 port 53506 connected to 10.10.10.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  6.43 GBytes  55.2 Gbits/sec   23   2.36 MBytes       
+[  5]   1.00-2.00   sec  6.26 GBytes  53.8 Gbits/sec    0   2.38 MBytes       
+[  5]   2.00-3.00   sec  6.16 GBytes  52.9 Gbits/sec    1   2.17 MBytes       
+[  5]   3.00-4.00   sec  6.30 GBytes  54.2 Gbits/sec    0   2.34 MBytes       
+[  5]   4.00-5.00   sec  6.43 GBytes  55.3 Gbits/sec    2   2.47 MBytes       
+[  5]   5.00-6.00   sec  6.25 GBytes  53.7 Gbits/sec   18   1.91 MBytes       
+[  5]   6.00-7.00   sec  6.18 GBytes  53.1 Gbits/sec    0   2.01 MBytes       
+[  5]   7.00-8.00   sec  6.09 GBytes  52.3 Gbits/sec    0   2.15 MBytes       
+[  5]   8.00-9.00   sec  6.31 GBytes  54.2 Gbits/sec    0   2.28 MBytes       
+[  5]   9.00-10.00  sec  6.28 GBytes  53.9 Gbits/sec    0   2.73 MBytes       
+[  5]  10.00-11.00  sec  6.16 GBytes  52.9 Gbits/sec    0   2.73 MBytes       
+[  5]  11.00-12.00  sec  6.19 GBytes  53.2 Gbits/sec   73   1.89 MBytes       
+[  5]  12.00-13.00  sec  6.24 GBytes  53.6 Gbits/sec    0   2.13 MBytes       
+[  5]  13.00-14.00  sec  6.15 GBytes  52.8 Gbits/sec    0   2.29 MBytes       
+[  5]  14.00-15.00  sec  6.15 GBytes  52.8 Gbits/sec    0   2.39 MBytes       
+[  5]  15.00-16.00  sec  6.15 GBytes  52.9 Gbits/sec    0   2.46 MBytes       
+[  5]  16.00-17.00  sec  6.17 GBytes  53.0 Gbits/sec    0   2.51 MBytes       
+[  5]  17.00-18.00  sec  6.14 GBytes  52.7 Gbits/sec    0   2.52 MBytes       
+[  5]  18.00-19.00  sec  6.14 GBytes  52.7 Gbits/sec    0   2.57 MBytes       
+[  5]  19.00-20.00  sec  6.15 GBytes  52.8 Gbits/sec    0   2.61 MBytes       
+[  5]  20.00-21.00  sec  6.19 GBytes  53.1 Gbits/sec    3   1.86 MBytes       
+[  5]  21.00-22.00  sec  6.14 GBytes  52.7 Gbits/sec    0   2.16 MBytes       
+[  5]  22.00-23.00  sec  6.16 GBytes  52.9 Gbits/sec    0   2.45 MBytes       
+[  5]  23.00-24.00  sec  6.23 GBytes  53.5 Gbits/sec    0   2.58 MBytes       
+[  5]  24.00-25.00  sec  6.18 GBytes  53.1 Gbits/sec    0   2.62 MBytes       
+[  5]  25.00-26.00  sec  6.24 GBytes  53.6 Gbits/sec   79   2.13 MBytes       
+[  5]  26.00-27.00  sec  6.43 GBytes  55.2 Gbits/sec    0   2.34 MBytes       
+[  5]  27.00-28.00  sec  6.30 GBytes  54.1 Gbits/sec    0   2.50 MBytes       
+[  5]  28.00-29.00  sec  6.18 GBytes  53.1 Gbits/sec    0   2.65 MBytes       
+[  5]  29.00-30.00  sec  6.21 GBytes  53.3 Gbits/sec    2   2.06 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec   187 GBytes  53.4 Gbits/sec  201             sender
+[  5]   0.00-30.00  sec   187 GBytes  53.4 Gbits/sec                  receiver
+
+iperf Done.
+

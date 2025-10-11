@@ -1,0 +1,27 @@
+ sockperf ping-pong -i 10.10.10.2  -t 30
+sockperf: == version #3.7-no.git == 
+sockperf[CLIENT] send on:sockperf: using recvfrom() to block on socket(s)
+
+[ 0] IP = 10.10.10.2      PORT = 11111 # UDP
+sockperf: Warmup stage (sending a few dummy messages)...
+sockperf: Starting test...
+sockperf: Test end (interrupted by timer)
+sockperf: Test ended
+sockperf: [Total Run] RunTime=30.000 sec; Warm up time=400 msec; SentMessages=628657; ReceivedMessages=628656
+sockperf: ========= Printing statistics for Server No: 0
+sockperf: [Valid Duration] RunTime=29.550 sec; SentMessages=618952; ReceivedMessages=618952
+sockperf: ====> avg-latency=23.857 (std-dev=2.870)
+sockperf: # dropped messages = 0; # duplicated messages = 0; # out-of-order messages = 0
+sockperf: Summary: Latency is 23.857 usec
+sockperf: Total 618952 observations; each percentile contains 6189.52 observations
+sockperf: ---> <MAX> observation = 1861.684
+sockperf: ---> percentile 99.999 =   91.998
+sockperf: ---> percentile 99.990 =   46.145
+sockperf: ---> percentile 99.900 =   30.622
+sockperf: ---> percentile 99.000 =   27.489
+sockperf: ---> percentile 90.000 =   25.347
+sockperf: ---> percentile 75.000 =   24.694
+sockperf: ---> percentile 50.000 =   24.301
+sockperf: ---> percentile 25.000 =   22.705
+sockperf: ---> <MIN> observation =   16.752
+

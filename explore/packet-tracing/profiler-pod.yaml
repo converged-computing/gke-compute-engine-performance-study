@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: profiler-pod
+spec:
+  # Pin the pod to the same node as your Kripke pod
+  nodeName: gke-pmu-cluster-default-pool-43fb6804-c70z
+  hostPID: true
+  restartPolicy: Never
+  containers:
+  - name: profiler
+    # We will use a standard Ubuntu image instead of the toolbox
+    image: ubuntu:latest
+    # This command is crucial. It keeps the container alive so we can connect.
+    command: ["/bin/bash", "-c", "sleep infinity"]
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - name: root-filesystem
+      mountPath: /host
+  volumes:
+  - name: root-filesystem
+    hostPath:
+      path: /
+     
