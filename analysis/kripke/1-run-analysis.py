@@ -244,14 +244,16 @@ def plot_time_breakdown(df: pd.DataFrame, outdir, level: int = 1, top_n: int = 1
     """
     df = df[df.Type != "timeseries"]
     # Sort by average time and take the top N
-    plt.figure(figsize=(20, 6))
-    df = df.sort_values(by="Avg time/rank", ascending=False)
-    sns.boxplot(data=df, y='Path', x='Avg time/rank', palette='viridis', hue="experiment")
-    plt.title(f'Kripke Functions by Average Time/Rank')
-    plt.xlabel('Average Time per Rank (s)')
-    plt.ylabel('Function / Path')
-    plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "kripke-time-breakdown.svg"))
+    for size in df.nodes.unique():
+      subset = df[df.nodes == size]
+      plt.figure(figsize=(20, 6))
+      subset = subset.sort_values(by="Avg time/rank", ascending=False)
+      sns.boxplot(data=subset, y='Path', x='Avg time/rank', palette='viridis', hue="experiment")
+      plt.title(f'Kripke Functions by Average Time/Rank (N={size})')
+      plt.xlabel('Average Time per Rank (s)')
+      plt.ylabel('Function / Path')
+      plt.tight_layout()
+      plt.savefig(os.path.join(outdir, f"kripke-time-breakdown-{size}.svg"))
 
 def plot_rank_distribution(df: pd.DataFrame, outdir, metric: str = 'Time (s)'):
     """
@@ -336,35 +338,41 @@ def plot_metric_correlation(df: pd.DataFrame, outdir, x_metric: str, y_metric: s
     plt.tight_layout()
     plt.savefig(os.path.join(outdir, "kripke-metric-correlation.svg"))
 
-    # just normalize by that?
-    subset['Time per Call (s)'] = subset['Total time'] / subset['Calls (total)']
-    
-    # Replace any potential infinite values if they sneak in
-    subset.replace([np.inf, -np.inf], np.nan, inplace=True)
-    subset.dropna(subset=['Time per Call (s)'], inplace=True)
-
     # 4. Sort by the new metric and take the top N most "expensive" functions
-    subset = subset.sort_values(by='Time per Call (s)', ascending=False)
-    
-    # 5. Create the plot
-    plt.figure(figsize=(12, 8))
-    
-    # A bar plot is best for comparing the cost of different functions
-    ax = sns.barplot(data=subset, y='Path', x='Time per Call (s)', palette='plasma')
-    
-    # Add text labels to the bars for exact values
-    ax.bar_label(ax.containers[0], fmt='%.2e', padding=3) # 'e' for scientific notation
+    for size in subset.nodes.unique():
+        ssubset = subset[subset.nodes == size]
+        print(ssubset.columns)
+        if ssubset.shape[0] == 0:
+            continue
 
-    plt.title(f'Most Expensive Functions by Time per Call')
-    plt.xlabel('Average Time per Call (seconds)')
-    plt.ylabel('Function / Path')
-    plt.xscale('log') # Log scale is often essential as costs can vary by orders of magnitude
-    plt.tight_layout()
+        # just normalize by that?
+        ssubset['Time per Call (s)'] = ssubset['Total time'] / ssubset['Calls (total)']
     
-    os.makedirs(outdir, exist_ok=True)
-    output_path = os.path.join(outdir, "kripke-cost-per-call.svg")
-    plt.savefig(output_path)
-    plt.tight_layout()
+        # Replace any potential infinite values if they sneak in
+        ssubset.replace([np.inf, -np.inf], np.nan, inplace=True)
+        ssubset.dropna(subset=['Time per Call (s)'], inplace=True)
+
+        ssubset = ssubset.sort_values(by='Time per Call (s)', ascending=False)
+    
+        # 5. Create the plot
+        plt.figure(figsize=(12, 8))
+    
+        # A bar plot is best for comparing the cost of different functions
+        ax = sns.barplot(data=ssubset, y='Path', x='Time per Call (s)', palette='plasma', hue="experiment")
+    
+        # Add text labels to the bars for exact values
+        ax.bar_label(ax.containers[0], fmt='%.2e', padding=3) # 'e' for scientific notation
+
+        plt.title(f'Most Expensive Functions by Time per Call (N={size})')
+        plt.xlabel('Average Time per Call (seconds)')
+        plt.ylabel('Function / Path')
+        plt.xscale('log') # Log scale is often essential as costs can vary by orders of magnitude
+        plt.tight_layout()
+    
+        os.makedirs(outdir, exist_ok=True)
+        output_path = os.path.join(outdir, f"kripke-cost-per-call-size-{size}.svg")
+        plt.savefig(output_path)
+        plt.tight_layout()
 
 def parse_profiler_output(raw_output):
     """
@@ -580,7 +588,7 @@ def plot_results(df, mpi_df, p_df, outdir):
                 hue="experiment",
                 xlabel="Nodes",
                 # hue_order=hue_order,
-                order=[4, 8, 16, 32],
+                order=[4, 8, 16, 32, 64, 128],
                 ylabel="(seconds/iteration)/unknowns",
                 do_round=False,
                 log_scale=True,
@@ -590,12 +598,12 @@ def plot_results(df, mpi_df, p_df, outdir):
 
         print(f"Total number of CPU datum: {metric_df.shape[0]}")
 
-    import IPython
-    IPython.embed()
+    #import IPython
+    #IPython.embed()
     plot_time_breakdown(p_df, img_outdir, level=1)
     
     print("\n--- 2. Generating Rank Distribution Plot ---")
-    plot_rank_distribution(p_df, img_outdir, metric='Time (s)')
+    #plot_rank_distribution(p_df, img_outdir, metric='Time (s)')
 
     print("\n--- 3. Generating Inclusive vs. Exclusive Time Plot ---")
     # Dive deeper into the `solve` function to see its components
