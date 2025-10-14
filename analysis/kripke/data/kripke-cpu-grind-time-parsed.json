@@ -1,4 +1,1386 @@
 {
+    "google/gke/cpu/size64": [
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417229.4882426,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417229.4887805,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417229.5106518,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-fon5phKM",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417229.5956511,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417268.0949721,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 35,
+                        "rank": 35,
+                        "state": "Exited",
+                        "pid": 313,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417268.2147045,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417268.2147257,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417190.1871762,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417190.187708,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417190.2194202,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-fWTTMNSb",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417190.3053122,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417229.1087039,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 39,
+                        "state": "Exited",
+                        "pid": 219,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417229.2300944,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417229.2301168,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417268.4805188,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417268.4810383,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417268.503891,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f26xmDsYs",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417268.5881987,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417307.5408647,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 47,
+                        "rank": 143,
+                        "state": "Exited",
+                        "pid": 354,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417307.6640384,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417307.6640584,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417307.9434,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417307.9439623,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417307.9680297,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2QMTREET",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417308.0526989,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417346.8947358,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 45,
+                        "rank": 93,
+                        "state": "Exited",
+                        "pid": 446,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417347.0181262,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417347.0181444,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417347.2766483,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417347.277178,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417347.3005624,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2hgsrAqu",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417347.3840935,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417386.49523,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 35,
+                        "rank": 35,
+                        "state": "Exited",
+                        "pid": 616,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417386.6086223,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417386.6086407,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417814.6049163,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417814.605507,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417814.6270335,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3cBchCcP",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417814.713324,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417872.1030571,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 31,
+                        "rank": 31,
+                        "state": "Exited",
+                        "pid": 620,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417872.2232504,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417872.2232702,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417570.8884277,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417570.888956,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417570.9225125,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-fkmwF4N3",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417571.0093436,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417628.1203601,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 43,
+                        "rank": 43,
+                        "state": "Exited",
+                        "pid": 217,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417628.239835,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417628.2398534,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417631.817977,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417631.818439,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417631.8384418,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2DdQCaAj",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417631.9253116,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417689.1008463,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 16,
+                        "rank": 16,
+                        "state": "Exited",
+                        "pid": 269,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417689.218517,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417689.218534,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417692.7951362,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417692.7956836,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417692.816685,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2gW3MWwH",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417692.9020798,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417750.0965283,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 30,
+                        "rank": 30,
+                        "state": "Exited",
+                        "pid": 404,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417750.2182043,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417750.218223,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760417753.7942183,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760417753.7947845,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760417753.8153422,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f39PDeCd5",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760417753.9004204,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760417810.9056404,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 45,
+                        "rank": 45,
+                        "state": "Exited",
+                        "pid": 542,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417811.0242922,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760417811.024313,
+                    "name": "done"
+                }
+            ]
+        }
+    ],
     "google/gke/cpu/size32": [
         {
             "jobspec": {
@@ -1376,6 +2758,1388 @@
                 },
                 {
                     "timestamp": 1759889121.1524634,
+                    "name": "done"
+                }
+            ]
+        }
+    ],
+    "google/gke/cpu/size128": [
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760452625.7935488,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760452625.7942066,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760452625.8316815,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f31qpL6LP",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760452625.9175978,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760452673.2076194,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 42,
+                        "rank": 42,
+                        "state": "Exited",
+                        "pid": 619,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452673.424917,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452673.42494,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760452577.996362,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760452577.997018,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760452578.033077,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2en57wnf",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760452578.1189425,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760452625.2744179,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 375,
+                        "state": "Exited",
+                        "pid": 434,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452625.5116315,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452625.5116496,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760452433.4170215,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760452433.4177055,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760452433.466559,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-fZ4RGEo9",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760452433.5540595,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760452480.849101,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 31,
+                        "rank": 31,
+                        "state": "Exited",
+                        "pid": 192,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452481.0663803,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452481.0664022,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760452529.729976,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760452529.730605,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760452529.7656345,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2HWN5bMZ",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760452529.8513503,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760452577.4313788,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 33,
+                        "rank": 321,
+                        "state": "Exited",
+                        "pid": 325,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452577.6541378,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452577.654158,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760452481.4053915,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760452481.406046,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760452481.4411519,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-fvD6bzjR",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760452481.5274072,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760452529.2502937,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 45,
+                        "rank": 93,
+                        "state": "Exited",
+                        "pid": 254,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452529.4514947,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760452529.4515135,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760453209.1092067,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760453209.1098237,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760453209.14761,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4FcvyM27",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760453209.2352438,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760453272.4812384,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 37,
+                        "rank": 37,
+                        "state": "Exited",
+                        "pid": 560,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453272.7044106,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453272.7044308,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760453007.121613,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760453007.12237,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760453007.1753607,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2ibsAW2j",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760453007.2639012,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760453070.1042368,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 27,
+                        "rank": 171,
+                        "state": "Exited",
+                        "pid": 119,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453070.3207345,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453070.3207612,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760453141.7007275,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760453141.7013354,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760453141.7340374,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3juxY1Wf",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760453141.8207617,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760453205.2136202,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 22,
+                        "rank": 22,
+                        "state": "Exited",
+                        "pid": 424,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453205.4412885,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453205.4413104,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760453276.3641734,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760453276.3648071,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760453276.3986576,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4mG24Zh9",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760453276.4856155,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760453339.6461709,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 36,
+                        "rank": 36,
+                        "state": "Exited",
+                        "pid": 665,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453339.863452,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453339.8634713,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/opt",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": -1,
+                                    "nofile": 1048576,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": -1
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760453073.9870188,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760453073.987608,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760453074.021974,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3E54WWeK",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760453074.11031,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760453137.8281522,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 37,
+                        "rank": 37,
+                        "state": "Exited",
+                        "pid": 346,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453138.0400887,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760453138.0401106,
                     "name": "done"
                 }
             ]
@@ -5527,6 +8291,1388 @@
             ]
         }
     ],
+    "google/compute-engine/cpu/size64": [
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424277.8071918,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424277.8076868,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424277.8278508,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2kbZATVR",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424277.911726,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424304.4661381,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 36,
+                        "rank": 36,
+                        "state": "Exited",
+                        "pid": 3174,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424304.578423,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424304.5784392,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424332.044574,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424332.0450938,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424332.064605,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3AVwSrAB",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424332.1487489,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424358.7237473,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 17,
+                        "rank": 257,
+                        "state": "Exited",
+                        "pid": 3162,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424358.8411446,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424358.8411615,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424250.367899,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424250.3683798,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424250.3879113,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2YWEaCYP",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424250.4707465,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424277.4161177,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 327,
+                        "state": "Exited",
+                        "pid": 2880,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424277.5365982,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424277.536621,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424223.02684,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424223.0273523,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424223.081071,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2LTKLn5m",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424223.1698623,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424249.9928446,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 43,
+                        "rank": 91,
+                        "state": "Exited",
+                        "pid": 2731,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424250.0976098,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424250.0976298,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424304.8474371,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424304.84793,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424304.866803,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f2xWn9c8F",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424304.9501233,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424331.66775,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 135,
+                        "state": "Exited",
+                        "pid": 3063,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424331.7756672,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424331.7756836,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424445.3388104,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424445.3393252,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424445.3618796,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f42RqRyxj",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424445.4482532,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424484.2913513,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 28,
+                        "rank": 28,
+                        "state": "Exited",
+                        "pid": 3520,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424484.409364,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424484.409381,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424530.0996757,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424530.100204,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424530.119831,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4fnUQPoM",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424530.204449,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424568.4981203,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 30,
+                        "rank": 30,
+                        "state": "Exited",
+                        "pid": 3740,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424568.6172786,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424568.6172955,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424572.2107446,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424572.2112904,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424572.2300994,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4zLsrwzP",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424572.3162017,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424612.0295212,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 47,
+                        "rank": 47,
+                        "state": "Exited",
+                        "pid": 3883,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424612.1471238,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424612.1471403,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424488.0090566,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424488.0095809,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424488.030135,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4MEabbFD",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424488.114439,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424526.3902385,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 26,
+                        "rank": 26,
+                        "state": "Exited",
+                        "pid": 3624,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424526.5133958,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424526.5134122,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 64,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,12,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-64-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760424615.740622,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760424615.7411397,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760424615.7604175,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f5KXZ3w4j",
+                        "leader-rank": 0,
+                        "size": 64
+                    }
+                },
+                {
+                    "timestamp": 1760424615.8450482,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    64,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760424654.7241817,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 39,
+                        "state": "Exited",
+                        "pid": 3975,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424654.842035,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760424654.8420537,
+                    "name": "done"
+                }
+            ]
+        }
+    ],
     "google/compute-engine/cpu/size32": [
         {
             "jobspec": {
@@ -6904,6 +11050,1388 @@
                 },
                 {
                     "timestamp": 1759898276.0358028,
+                    "name": "done"
+                }
+            ]
+        }
+    ],
+    "google/compute-engine/cpu/size128": [
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760468965.0589912,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760468965.0595899,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760468965.0931096,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3yWPe4rs",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760468965.177509,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760468996.8580756,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 135,
+                        "state": "Exited",
+                        "pid": 3539,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760468997.0848358,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760468997.084876,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760468931.6298788,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760468931.63056,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760468931.7139628,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f3imrg2kw",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760468931.8039455,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760468964.4528697,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 327,
+                        "state": "Exited",
+                        "pid": 3424,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760468964.6691241,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760468964.6691487,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469030.4953585,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469030.4960446,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469030.5310361,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4UM1ToD1",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469030.616936,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469063.3312354,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 39,
+                        "rank": 39,
+                        "state": "Exited",
+                        "pid": 3366,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469063.5640607,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469063.5640821,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760468997.46842,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760468997.4690642,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760468997.5039182,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4DnoSkxP",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760468997.589174,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469029.8853428,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 47,
+                        "rank": 47,
+                        "state": "Exited",
+                        "pid": 3278,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469030.112048,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469030.112068,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469063.954043,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469063.9546885,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469063.988795,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f4j6ETVvF",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469064.0738757,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469095.8943117,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 42,
+                        "rank": 42,
+                        "state": "Exited",
+                        "pid": 3476,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469096.150346,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469096.1503668,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-3"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469240.5686395,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469240.5692818,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469240.602531,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f64vjeXcK",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469240.6893082,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469287.102969,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 45,
+                        "rank": 45,
+                        "state": "Exited",
+                        "pid": 4273,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469287.3199267,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469287.319945,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-5"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469340.5588005,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469340.5594587,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469340.5936155,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f6pzbLPXd",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469340.6795897,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469385.2396362,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 47,
+                        "rank": 47,
+                        "state": "Exited",
+                        "pid": 4502,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469385.4535284,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469385.4535463,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-1"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469140.7185988,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469140.7193885,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469140.7556767,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f5JvMaz1u",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469140.8434699,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469187.7242875,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 35,
+                        "rank": 35,
+                        "state": "Exited",
+                        "pid": 3603,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469187.9420538,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469187.942074,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-4"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469291.0333073,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469291.0340025,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469291.0671751,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f6TAgHe23",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469291.1515,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469336.6253383,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 28,
+                        "rank": 28,
+                        "state": "Exited",
+                        "pid": 4353,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469336.8503397,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469336.8503604,
+                    "name": "done"
+                }
+            ]
+        },
+        {
+            "jobspec": {
+                "resources": [
+                    {
+                        "type": "node",
+                        "count": 128,
+                        "with": [
+                            {
+                                "type": "slot",
+                                "count": 48,
+                                "with": [
+                                    {
+                                        "type": "core",
+                                        "count": 1
+                                    }
+                                ],
+                                "label": "task"
+                            }
+                        ]
+                    }
+                ],
+                "tasks": [
+                    {
+                        "command": [
+                            "kripke",
+                            "--layout",
+                            "DGZ",
+                            "--dset",
+                            "16",
+                            "--gset",
+                            "16",
+                            "--groups",
+                            "16",
+                            "--niter",
+                            "500",
+                            "--legendre",
+                            "2",
+                            "--quad",
+                            "16",
+                            "--zones",
+                            "256,192,128",
+                            "--procs",
+                            "16,24,16"
+                        ],
+                        "slot": "task",
+                        "count": {
+                            "per_slot": 1
+                        }
+                    }
+                ],
+                "attributes": {
+                    "system": {
+                        "duration": 0,
+                        "cwd": "/root",
+                        "shell": {
+                            "options": {
+                                "rlimit": {
+                                    "cpu": -1,
+                                    "fsize": -1,
+                                    "data": -1,
+                                    "stack": 8388608,
+                                    "core": 0,
+                                    "nofile": 1024,
+                                    "as": -1,
+                                    "rss": -1,
+                                    "nproc": 1450578
+                                },
+                                "cpu-affinity": "per-task"
+                            }
+                        }
+                    },
+                    "user": {
+                        "study_id": "kripke-128-iter-2"
+                    }
+                },
+                "version": 1
+            },
+            "events": [
+                {
+                    "timestamp": 1760469191.6582077,
+                    "name": "init"
+                },
+                {
+                    "timestamp": 1760469191.6588058,
+                    "name": "starting"
+                },
+                {
+                    "timestamp": 1760469191.6938434,
+                    "name": "shell.init",
+                    "context": {
+                        "service": "0-shell-f5hNWtB8T",
+                        "leader-rank": 0,
+                        "size": 128
+                    }
+                },
+                {
+                    "timestamp": 1760469191.7804463,
+                    "name": "shell.start",
+                    "context": {
+                        "taskmap": {
+                            "version": 1,
+                            "map": [
+                                [
+                                    0,
+                                    128,
+                                    48,
+                                    1
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "timestamp": 1760469236.632628,
+                    "name": "shell.task-exit",
+                    "context": {
+                        "localid": 32,
+                        "rank": 32,
+                        "state": "Exited",
+                        "pid": 3722,
+                        "wait_status": 0,
+                        "signaled": 0,
+                        "exitcode": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469236.860448,
+                    "name": "complete",
+                    "context": {
+                        "status": 0
+                    }
+                },
+                {
+                    "timestamp": 1760469236.860469,
                     "name": "done"
                 }
             ]
