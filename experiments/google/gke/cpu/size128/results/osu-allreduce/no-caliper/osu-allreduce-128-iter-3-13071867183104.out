@@ -1,0 +1,33 @@
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+4                   10842.36
+8                   10937.66
+16                  10289.16
+32                  10853.87
+64                  10920.43
+128                 10854.88
+256                 10799.63
+512                 10885.31
+1024                10614.97
+2048                11241.29
+4096                11570.94
+8192                11425.70
+16384               11564.86
+32768               19786.62
+65536               20014.05
+131072              19877.28
+262144              19798.03
+524288              20133.47
+1048576             20455.80
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 128, "with": [{"type": "slot", "count": 48, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["/usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}, "cpu-affinity": "per-task"}}}, "user": {"study_id": "osu-allreduce-128-iter-3"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1760454217.9514828,"name":"init"}
+{"timestamp":1760454217.9520674,"name":"starting"}
+{"timestamp":1760454217.9857576,"name":"shell.init","context":{"service":"0-shell-f6vNo99XM","leader-rank":0,"size":128}}
+{"timestamp":1760454218.0713327,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,128,48,1]]}}}
+{"timestamp":1760454562.5248559,"name":"shell.task-exit","context":{"localid":44,"rank":44,"state":"Exited","pid":439,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1760454562.7266519,"name":"complete","context":{"status":0}}
+{"timestamp":1760454562.7266734,"name":"done"}
+
