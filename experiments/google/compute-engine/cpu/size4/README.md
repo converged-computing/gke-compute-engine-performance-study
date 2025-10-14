@@ -112,7 +112,7 @@ nodes=$1
 app=$2
 
 # At most 28 combinations, N nodes 2 at a time
-hosts=$(flux run -N $1 hostname | shuf -n $nodes | tr '\n' ' ')
+hosts=$(flux run -N $1 hostname | shuf -n 8 | tr '\n' ' ')
 list=${hosts}
 
 dequeue_from_list() {
@@ -161,7 +161,7 @@ nodes=$1
 app=$2
 
 # At most 28 combinations, N nodes 2 at a time
-hosts=$(flux run -N $1 hostname | shuf -n 28 | tr '\n' ' ')
+hosts=$(flux run -N $1 hostname | shuf -n 8 | tr '\n' ' ')
 list=${hosts}
 
 dequeue_from_list() {
