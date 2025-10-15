@@ -1,0 +1,72 @@
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: adiak_export,adiak_import,aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+== CALIPER: (0): Creating channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): builtin.configmgr: Registered MPI service
+== CALIPER: (0): builtin.configmgr: Registered mpiflush service
+== CALIPER: (0): Creating channel spot
+== CALIPER: (0): spot: Registered adiak_import service
+== CALIPER: (0): spot: Registered aggregation service
+== CALIPER: (0): spot: event: Using region level 0
+== CALIPER: (0): spot: event: Marked attribute comm.region
+== CALIPER: (0): spot: event: Marked attribute loop
+== CALIPER: (0): spot: event: Marked attribute phase
+== CALIPER: (0): spot: event: Marked attribute region
+== CALIPER: (0): spot: Registered event trigger service
+== CALIPER: (0): spot: mpiwrap: Using GOTCHA wrappers.
+== CALIPER: (0): spot: Registered MPI service
+== CALIPER: (0): spot: Registered timer service
+== CALIPER: (0): spot: event: Marked attribute mpi.function
+== CALIPER: (0): spot: Enabling MPI message tracing
+== CALIPER: (0): Registered builtin ConfigManager
+== CALIPER: (0): spot: event: Marked attribute msg_size
+== CALIPER: (0): spot: event: Marked attribute num_procs
+4                    1071.91
+8                     868.33
+16                    872.27
+32                   1278.47
+64                    654.35
+128                   873.18
+256                  1079.94
+512                   904.17
+1024                 1510.57
+2048                  839.22
+4096                  677.07
+8192                 1186.37
+16384                1437.27
+32768                1429.10
+65536                1237.22
+131072               1285.98
+262144               1453.40
+524288               1642.78
+1048576              2216.40
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): spot: CustomOutputController::flush(): using MPI
+== CALIPER: (0): OutputCommMpi: MPI is available
+== CALIPER: (0): spot: Flushing Caliper data
+== CALIPER: (0): spot: adiak_import: Imported 0 adiak values
+== CALIPER: (0): spot: Aggregate: flushed 88 snapshots.
+== CALIPER: (0): spot: Wrote 129 records.
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): builtin.configmgr: Flushing Caliper data
+== CALIPER: (0): Releasing channel builtin.configmgr
+== CALIPER: (0): builtin.configmgr: Finishing mpi service
+== CALIPER: (0): builtin.configmgr channel blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): CaliperMetadataDB: stored 225 nodes, 122 strings.
+== CALIPER: (0): Releasing channel spot
+== CALIPER: (0): spot: Aggregate: Releasing aggregation DB.
+  max hash len: 3, 94 entries, 651 kernels, 1.5 MiB reserved.
+== CALIPER: (0): spot: Finishing mpi service
+== CALIPER: (0): spot channel blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 1
+== CALIPER: (0): Process blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 2 blocks, 262 nodes
+   Metadata memory pool: 1 MiB reserved, 38.166 KiB used
+  Thread blackboard: max 4 entries (0.391773% occupancy).
+== CALIPER: (0): Finished
