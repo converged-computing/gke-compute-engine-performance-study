@@ -588,7 +588,7 @@ def plot_results(df, mpi_df, p_df, outdir):
                 hue="experiment",
                 xlabel="Nodes",
                 # hue_order=hue_order,
-                order=[4, 8, 16, 32, 64, 128],
+                order=[4, 8, 16, 32, 64, 128, 256],
                 ylabel="(seconds/iteration)/unknowns",
                 do_round=False,
                 log_scale=True,
@@ -598,8 +598,6 @@ def plot_results(df, mpi_df, p_df, outdir):
 
         print(f"Total number of CPU datum: {metric_df.shape[0]}")
 
-    #import IPython
-    #IPython.embed()
     plot_time_breakdown(p_df, img_outdir, level=1)
     
     print("\n--- 2. Generating Rank Distribution Plot ---")
