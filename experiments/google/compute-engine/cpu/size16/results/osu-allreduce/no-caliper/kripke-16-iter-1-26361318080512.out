@@ -1,0 +1,45 @@
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+== CALIPER: (0): Available services: adiak_export,adiak_import,aggregate,alloc,allocstats,async_event,cpuinfo,debug,event,io,kokkoslookup,kokkostime,loop_monitor,loop_statistics,memstat,mpi,mpiflush,mpireport,pthread,recorder,region_monitor,report,statistics,sysalloc,timer,timeseries,timestamp,trace,validator
+== CALIPER: (0): Initialized
+== CALIPER: (0): No manual config specified, disabling default channel
+4                     358.82
+8                     359.59
+16                    364.71
+32                    364.34
+64                    369.01
+128                   361.61
+256                   370.64
+512                   372.12
+1024                  376.06
+2048                  301.00
+4096                  319.98
+8192                  356.53
+16384                 652.16
+32768                 669.30
+65536                 706.05
+131072                754.95
+262144                845.81
+524288               1032.79
+1048576              1520.86
+== CALIPER: (0): Finalizing ... 
+== CALIPER: (0): Releasing Caliper global data.
+  Max active channels: 0
+== CALIPER: (0): Process blackboard: max 1 entries (0.0979432% occupancy).
+== CALIPER: (0): Releasing Caliper thread data: 
+  Metadata tree: 1 blocks, 70 nodes
+   Metadata memory pool: 1 MiB reserved, 18.1797 KiB used
+  Thread blackboard: max 2 entries (0.195886% occupancy).
+== CALIPER: (0): Finished
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 16, "with": [{"type": "slot", "count": 48, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["osu_allreduce"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/root", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": 0, "nofile": 1024, "as": -1, "rss": -1, "nproc": 1450579}, "cpu-affinity": "per-task"}}}, "user": {"study_id": "kripke-16-iter-1"}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1759870693.5075848,"name":"init"}
+{"timestamp":1759870693.5080771,"name":"starting"}
+{"timestamp":1759870693.5197189,"name":"shell.init","context":{"service":"0-shell-fCwU6Qhom","leader-rank":0,"size":16}}
+{"timestamp":1759870693.6072206,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,16,48,1]]}}}
+{"timestamp":1759870709.5074356,"name":"shell.task-exit","context":{"localid":17,"rank":305,"state":"Exited","pid":3768,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1759870709.5483017,"name":"complete","context":{"status":0}}
+{"timestamp":1759870709.5483229,"name":"done"}
+
