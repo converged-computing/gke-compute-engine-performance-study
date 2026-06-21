@@ -1,0 +1,13 @@
+flux-sample-0
+flux-sample-1
+START OF JOBSPEC
+{"resources": [{"type": "node", "count": 2, "exclusive": true, "with": [{"type": "slot", "count": 1, "with": [{"type": "core", "count": 1}], "label": "task"}]}], "tasks": [{"command": ["hostname"], "slot": "task", "count": {"per_slot": 1}}], "attributes": {"system": {"duration": 0, "cwd": "/opt", "shell": {"options": {"rlimit": {"cpu": -1, "fsize": -1, "data": -1, "stack": 8388608, "core": -1, "nofile": 1048576, "as": -1, "rss": -1, "nproc": -1}}}}}, "version": 1}
+START OF EVENTLOG
+{"timestamp":1782008826.8286726,"name":"init"}
+{"timestamp":1782008826.837343,"name":"shell.init","context":{"service":"0-shell-f5491YJv3","leader-rank":0,"size":2}}
+{"timestamp":1782008826.8387909,"name":"shell.start","context":{"taskmap":{"version":1,"map":[[0,2,1,1]]}}}
+{"timestamp":1782008826.8392966,"name":"shell.task-exit","context":{"localid":0,"rank":0,"state":"Exited","pid":2177,"wait_status":0,"signaled":0,"exitcode":0}}
+{"timestamp":1782008826.8291337,"name":"starting"}
+{"timestamp":1782008826.8404956,"name":"complete","context":{"status":0}}
+{"timestamp":1782008826.8405063,"name":"done"}
+
